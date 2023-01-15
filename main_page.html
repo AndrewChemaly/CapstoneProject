@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Home Page</title>
+  <link rel="stylesheet" href="navbar.css">
+  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+  <!-- this script is for the social media icons in the footer -->
+  <script src="navbar.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- this link is for the downwards arrow on Plan & book and services -->
+
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    }
+
+
+    h1 {
+      font-weight: bold;
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-weight: bold;
+      font-size: 0.5rem;
+    }
+
+    p {
+      font-weight: 35;
+      font-size: 1rem;
+    }
+
+
+    /* hero */
+    main {
+      height: 100vh;
+      background: url('main_page_pics/hero5.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+
+    section {
+      padding: 10rem 0 5rem 0;
+      background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 100%, rgba(143,0,0,1) 100%, rgba(1,0,0,1) 100%);
+
+    }
+
+    /* animation */
+    svg {
+      animation: infinite-spinning 3s infinite;
+    }
+
+    @keyframes infinite-spinning {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+
+    /* hero section */
+    img {
+      width: 50%;
+      height: auto;
+      border: 0.5rem solid gray;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      align-items: center;
+      margin: auto;
+      padding-top: 2rem;
+
+    }
+
+    .container div {
+      text-align: center;
+      border: 2px #ccc solid;
+      font-size: 100%;
+      height: 12rem;
+      margin: 10rem;
+      max-width: 100vh;
+      background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(41, 14, 68, 0.6225840678068102) 0%, rgba(4, 98, 152, 1) 100%, rgba(17, 225, 160, 1) 100%);
+      z-index: 2;
+    }
+
+    .box1,
+    .box2,
+    .box3 {
+
+      flex-basis: 70%;
+      border-radius: 0.5em;
+      flex-flow: column;
+      transition: all 0.3s ease;
+    }
+
+    .container a {
+      text-decoration: none;
+      color: white;
+      margin: 0.25rem;
+      transition: color .1s ease-in-out;
+    }
+
+    .container a:hover {
+      box-shadow: inset 200px 0 0 0 #54b3d6;
+      color: black;
+      transition: all 1s ease;
+
+    }
+
+
+
+
+    /* Winter Getaway section */
+    .container1 {
+      display: flex;
+      justify-content: left;
+      width: 100%;
+      margin-top: -15rem;
+      padding-top: 10rem;
+    }
+
+    .box4 h1 {
+      color: white;
+      padding-left: 10rem;
+      white-space: nowrap;
+      font-weight: bolder;
+      font-family: Arial, Helvetica, sans-serif;
+
+    }
+
+    .box4 p {
+      margin-left: 1em;
+      text-align-last: left;
+      font-size: 1.8rem;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-weight: lighter;
+      padding-top: 1rem;
+      text-shadow: -4px 4px 6px dimgray;
+      color: white;
+    }
+
+
+    /* Summer Getaway section */
+    .container2 {
+      display: flex;
+      justify-content: right;
+      width: 100%;
+      margin-top: -15rem;
+      padding-top: 10rem;
+    }
+
+    .box5 h1 {
+      color: white;
+      padding-left: 10rem;
+      white-space: nowrap;
+      font-weight: bolder;
+      font-family: Arial, Helvetica, sans-serif;
+
+    }
+
+    .box5 p {
+      margin-left: 1em;
+      margin-right: 1em;
+      text-align-last: left;
+      font-size: 1.8rem;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-weight: lighter;
+      padding-top: 1rem;
+      text-shadow: -4px 4px 6px dimgray;
+      color: white;
+    }
+
+
+    #button1 {
+      white-space: nowrap;
+      margin: auto;
+      cursor: pointer;
+      border: none;
+      padding: 1rem;
+      /* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,43,121,1) 44%, rgba(0,212,255,1) 100%); */
+      /* color:white; */
+      font-family: cursive;
+      box-sizing: border-box;
+      padding: 0.4em 0.7em;
+      font-size: clamp(.5rem, 1.5vw + 3px, 2rem);
+    }
+
+
+    /* slide show section */
+
+    .h11 {
+      text-align: center;
+      font-size: 2rem;
+      font-family: 'Montserrat', sans-serif;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      /* -webkit-text-stroke: 1px white; */
+    }
+
+    .slider {
+      justify-content: center;
+      align-items: center;
+      width: 1200px;
+      height: 500px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .slides {
+      width: 500%;
+      height: 500px;
+      display: flex;
+    }
+
+    .slides input {
+      display: none;
+    }
+
+    .slide {
+      width: 20%;
+      transition: 2s;
+    }
+
+    .slide img {
+      width: 1200px;
+      height: 500px;
+    }
+
+    .navigation-mannual {
+      position: absolute;
+      width: 1200px;
+      margin-top: -40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .mannual-btn {
+      border: 2px solid #ccc;
+      padding: 5px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 1s;
+    }
+
+    .mannual-btn:not(:last-child) {
+      margin-right: 40px;
+    }
+
+    .mannual-btn:hover {
+      background-color: #ccc;
+    }
+
+    #radio1:checked~.first {
+      margin-left: 0;
+    }
+
+    #radio2:checked~.first {
+      margin-left: -20%;
+    }
+
+    #radio3:checked~.first {
+      margin-left: -40%;
+    }
+
+    #radio4:checked~.first {
+      margin-left: -60%;
+    }
+
+    /* Automatic Navigation */
+    .navigation-auto {
+      position: absolute;
+      display: flex;
+      width: 1200px;
+      justify-content: center;
+      margin-top: 460px;
+    }
+
+    .navigation-auto div {
+      border: 2px solid #333;
+      padding: 5px;
+      border-radius: 10px;
+      transition: 1s;
+    }
+
+    .navigation-auto div:not(:last-child) {
+      margin-right: 40px;
+    }
+
+    #radio1:checked~.navigation-auto .auto-btn-1 {
+      background: #ccc;
+    }
+
+    #radio2:checked~.navigation-auto .auto-btn-2 {
+      background: #ccc;
+    }
+
+
+    #radio3:checked~.navigation-auto .auto-btn-3 {
+      background: #ccc;
+    }
+
+    #radio4:checked~.navigation-auto .auto-btn-4 {
+      background: #ccc;
+    }
+
+    /* Contact Us Section*/
+
+    .box6 {
+      height: 80vh;
+      margin-top: -5rem;
+    }
+
+    .ContactUs .box6 h1 {
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    .ContactUs input {
+      width: 30%;
+      font-size: 1rem;
+      padding: 1rem;
+      margin: 1.1rem;
+      display: block;
+      border: 1px solid #ccc;
+    }
+
+    .ContactUs input[type=submit] {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .ContactUs input::placeholder {
+      font-size: 1rem;
+    }
+
+
+    .ContactUs form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .ContactUs textarea {
+      width: 30%;
+      height: 18rem;
+      padding-top: 1rem;
+      padding-left: 1rem;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      margin: 1.1rem;
+      font-family: sans-serif;
+    }
+
+
+    /* Footer part */
+    footer {
+      padding-bottom: 5rem;
+      height: 1rem;
+      background-color: black;
+      line-height: 80px;
+      text-align: center;
+    }
+
+    .Mediaicons {
+      text-decoration: none;
+      padding: 20px;
+      margin: 0.1rem;
+      font-size: 1rem;
+      background-color: white;
+    }
+
+    .Mediaicons-facebook {
+      background: #3B5998;
+      color: white;
+    }
+
+    .Mediaicons-twitter {
+      background: #55ACEE;
+      color: white;
+    }
+
+    .Mediaicons-instagram {
+      background: #125688;
+      color: white;
+    }
+
+    .Mediaicons-youtube {
+      background: #bb0000;
+      color: white;
+    }
+
+    .Mediaicons-google {
+      background: #dd4b39;
+      color: white;
+    }
+
+
+    .Mediaicons:hover {
+      opacity: 0.9;
+    }
+
+
+    /* --------------------------------------------------------- */
+    /* MEDIA QUERIES */
+    @media (max-width:1340px) {
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        padding-top: 10rem;
+        width: 100%;
+      }
+
+      .container div {
+        width: 80%;
+        justify-content: center;
+        border: px #ccc solid;
+        font-size: 100%;
+        margin-top: -7rem;
+      }
+
+
+      .box4 h1 {
+        padding-left: clamp(2rem, 1.5vw + 3px, 2rem);
+        font-size: clamp(1rem, 2.5vw, 2rem);
+      }
+
+      .box4 p {
+        margin-left: 1em;
+        text-align-last: left;
+        font-size: 3rem;
+
+        padding-top: 1rem;
+        font-size: clamp(1rem, 2.5vw, 2rem);
+      }
+
+
+      .box5 h1 {
+        padding-left: clamp(2rem, 1.5vw + 3px, 2rem);
+        font-size: clamp(1rem, 2.5vw, 2rem);
+      }
+
+      .box5 p {
+        margin-left: 1em;
+        text-align-last: left;
+        font-size: 3rem;
+
+        padding-top: 1rem;
+        font-size: clamp(1rem, 2.5vw, 2rem);
+      }
+
+
+
+    }
+
+
+
+
+    @media (max-width:600px) {
+
+      .box4 h1 {
+        font-size: small;
+        padding-left: clamp(2rem, 1.5vw + 3px, 2rem);
+      }
+
+      .box4 p {
+        width: 50%;
+        margin-left: 1em;
+        text-align-last: left;
+        font-size: 3rem;
+
+        padding-top: 1rem;
+        font-size: clamp(1rem, 2.5vw, 2rem);
+      }
+
+
+      .box5 h1 {
+        font-size: small;
+        padding-left: clamp(2rem, 1.5vw + 3px, 2rem);
+      }
+
+      .box5 p {
+        width: 50%;
+        margin-left: 1em;
+        text-align-last: left;
+        font-size: 3rem;
+
+        padding-top: 1rem;
+        font-size: clamp(1rem, 2.5vw, 2rem);
+      }
+    }
+
+    @media (max-height:500px) {
+
+      .container div {
+
+        height: 10rem;
+        margin-top: -1rem;
+      }
+    }
+
+    @media (max-height:300px) {
+
+      .container div {
+        height: 10rem;
+        margin-top: -10rem;
+      }
+
+    }
+
+
+    @media (max-height:800px) and (max-width:1300px) {
+      .container {
+        display: flex;
+        flex-direction: row;
+        height: 10rem;
+        /* min-height: 80vh; */
+      }
+
+      .container div {
+        margin-top: -20rem;
+        margin: 1rem;
+        height: 10rem;
+      }
+
+    }
+
+
+    @media (max-height:600px) and (max-width:800px) {
+      .container {
+
+        display: flex;
+        flex-direction: row;
+        height: 18rem;
+      }
+
+      .container div {
+        margin-top: 4rem;
+        width: 80%;
+        height: 7rem;
+        margin-top: -10rem;
+      }
+
+    }
+
+    @media (max-height:400px) and (max-width:600px) {
+      .container {
+
+        display: flex;
+        flex-direction: row;
+        height: 18rem;
+      }
+
+      .container div {
+        font-size: small;
+        width: 50%;
+        height: 10rem;
+        margin-top: -10rem;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <header>
+      <nav>
+        <ul>
+          <li><a class="active" href="main_page.php">Home Page</a></li>
+          <div class="subnav">
+            <li><a href="book.html">Book Room<i class="fa fa-caret-down"></i></a></li>
+            <div class="subnav-content">
+              <li><a href="book.html">Book a Room</a></li>
+              <li><a href="flight_schedule_search.php">Room Status</a></li>
+              <!-- <li><a href="manage_booking.php">Manage Booking</a></li> -->
+              <!-- <li><a href="FlightStatus.php">Flight Status</a></li> -->
+            </div>
+          </div>
+          <div class="subnav">
+            <li><a href="PassengerServices.html">Facilities<i class="fa fa-caret-down"></i></a></li></button>
+            <div class="subnav-content">
+              <li><a href="BaggageInfo.html">Dining</a></li>
+              <li><a href="PassengerServices.html">Swimming Pool</a></li>
+              <li><a href="cargo.html">Gym</a></li>
+              <!-- <li><a href="checkin.php">Check-in</a></li> -->
+              <!-- <?php 
+              if($flag == 0){
+                print'<li><a href="admin.html">Admin</a></li>';
+              }
+              ?> -->
+              <!-- <li><a href="admin.html">Admin</a></li> -->
+            </div>
+          </div>
+          <li><a href="CovidRestrictions.html">Covid Restrictions</a></li>
+          <li><a href="Faq.html">FAQ</a>
+          <li><a href="login.php">Login/Register</a>
+        </ul>
+
+        <!-- hamburger menu, only essentiel links -->
+        <div class="topnav">
+          <a href="main_page.php" class="active">
+            <ion-icon name="airplane-outline"></ion-icon>
+          </a>
+          <div id="myLinks">
+            <a href="book.html">Book a Room</a>
+            <a href="checkin.php">Check-in</a>
+            <a href="login.php">Login</a>
+          </div>
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
+      </nav>
+    </header>
+
+
+
+    <!-- hero -->
+    <h1 style="margin-top: 2rem; text-align: center; color: white;"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+        height="20" fill="currentColor" class="bi bi-airplane-engines-fill" viewBox="0 0 16 16">
+        <path
+          d="M8 0c-.787 0-1.292.592-1.572 1.151A4.347 4.347 0 0 0 6 3v3.691l-2 1V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.191l-1.17.585A1.5 1.5 0 0 0 0 10.618V12a.5.5 0 0 0 .582.493l1.631-.272.313.937a.5.5 0 0 0 .948 0l.405-1.214 2.21-.369.375 2.253-1.318 1.318A.5.5 0 0 0 5.5 16h5a.5.5 0 0 0 .354-.854l-1.318-1.318.375-2.253 2.21.369.405 1.214a.5.5 0 0 0 .948 0l.313-.937 1.63.272A.5.5 0 0 0 16 12v-1.382a1.5 1.5 0 0 0-.83-1.342L14 8.691V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v.191l-2-1V3c0-.568-.14-1.271-.428-1.849C9.292.591 8.787 0 8 0Z" />
+      </svg>Good Morinng, Andrew
+      <!-- <?php if ($flag==1)
+      print($entry['First_Name']  . " " . $entry['Last_Name']);
+      if($flag==0)
+      {
+        print("Admin " . $entry['Username']);
+      }
+      if($flag==2)
+      {
+        print("");
+        // just avoiding error msg
+      }
+      
+      ?>
+       To ROA Airlines! -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" fill="currentColor"
+        class="bi bi-airplane-engines-fill" viewBox="0 0 16 16">
+        <path
+          d="M8 0c-.787 0-1.292.592-1.572 1.151A4.347 4.347 0 0 0 6 3v3.691l-2 1V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.191l-1.17.585A1.5 1.5 0 0 0 0 10.618V12a.5.5 0 0 0 .582.493l1.631-.272.313.937a.5.5 0 0 0 .948 0l.405-1.214 2.21-.369.375 2.253-1.318 1.318A.5.5 0 0 0 5.5 16h5a.5.5 0 0 0 .354-.854l-1.318-1.318.375-2.253 2.21.369.405 1.214a.5.5 0 0 0 .948 0l.313-.937 1.63.272A.5.5 0 0 0 16 12v-1.382a1.5 1.5 0 0 0-.83-1.342L14 8.691V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v.191l-2-1V3c0-.568-.14-1.271-.428-1.849C9.292.591 8.787 0 8 0Z" />
+      </svg>
+    </h1>
+
+
+
+    <!-- The Three Boxes hero sectionn -->
+    <div class="container">
+      <div class="box1">
+        <a href="book_a_trip.php">
+          <h1>Book a Room</h1>
+          <p>Buy or Reserve a Room</p>
+        </a>
+      </div>
+      <div class="box2">
+        <a href="checkin.php">
+          <h1>Facilities</h1>
+          <p>Check Out The Different Facilities</p>
+        </a>
+      </div>
+      <div class="box3">
+        <a href="flight_schedule_search.php">
+          <h1>Services</h1>
+
+          <p>Check Out The Offered Services</p>
+        </a>
+      </div>
+    </div>
+  </main>
+
+
+
+  <!-- Winter Getaway section -->
+  <section>
+    <div class="container1">
+      <img src="main_page_pics/winterpic.jpg" alt="Winter Getaway" style="vertical-align: bottom;">
+      <div class="box4">
+        <h1>Plan your Winter Getaway!</h1>
+        <p>Visit our lovely mountain hotel to get away from the winter's chilly weather.<br><br>
+          Relax in our indoor pool and hot tub, unwind in our beautiful guest rooms with fireplaces and mountain views,
+          and treat yourself to a spa treatment.<br><br>
+          Perfect for a winter vacation that includes skiing and snowshoeing.
+          <a href="CovidRestrictions.html"><button id="button1">Book Now</button></a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <section>
+    <div class="container2">
+      <div class="box5">
+        <h1>Plan your Summer Getaway!</h1>
+        <p>Plan your summer vacation at our seaside hotel to escape the heat.<br><br>
+          Swim in the pristine ocean, enjoy delectable seafood dishes, and unwind on the sandy beach.<br><br>
+          Make lifetime experiences by making a reservation right away.
+          <a href="CovidRestrictions.html"><button id="button1">Book Now</button></a>
+        </p>
+      </div>
+      <img src="main_page_pics/summerpic.jpg" alt="Summer Getaway" style="vertical-align: bottom;">
+    </div>
+  </section>
+
+  <style>
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+
+
+.container99 {
+  max-width: 90%;
+  margin: auto;
+}
+
+
+.flex {
+  display: flex;
+}
+
+
+
+
+/* -------------head---------
+/*-------------header--------- */
+header {
+  background: #CC8C18;
+  padding: 15px 0 15px 0;
+  color: white;
+}
+
+
+button {
+  background: #CC8C18;
+  color: white;
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  border-radius: 30px;
+}
+
+
+
+
+
+.left, .right {
+  width: 50%;
+}
+
+
+
+p {
+  line-height: 30px;
+  color: #a4a4a4;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+/*------------wrapper------------*/
+/*------------wrapper2------------*/
+.wrapper2 {
+  position: relative;
+  text-align: center;
+}
+
+.wrapper2 .grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.wrapper2 .box {
+  box-shadow: 0 0 20px 3px rgb(0 0 0 / 5%);
+  padding: 20px;
+  transition: 0.5s;
+}
+
+.wrapper2 i {
+  margin: 10px 0 15px 0;
+  color: #CC8C18;
+  font-size: 30px;
+}
+
+.wrapper2 h3 {
+  font-size: 20px;
+}
+
+.wrapper2 span {
+  padding: 10px;
+  background: #F5E8D1;
+  color: #CC8C18;
+  border-radius: 50%;
+}
+
+.wrapper2 .box:hover {
+  background: #CC8C18;
+  cursor: pointer;
+}
+
+.wrapper2 .box:hover span {
+  background: #fff;
+}
+
+.wrapper2 .box:hover p,
+.wrapper2 .box:hover h3,
+.wrapper2 .box:hover i {
+  color: white;
+}
+
+.wrapper2::after {
+  content: '';
+  position: absolute;
+  top: -22%;
+  left: 0;
+  background-image: url("../image/line1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 75px;
+  width: 100%;
+  z-index: 2;
+}
+
+/*------------wrapper2------------*/
+/*------------room------------*/
+.room {
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.room.wrapper2::after {
+  display: none;
+  top: 105%;
+  background-image: url("../image/line2.png");
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 30px;
+}
+
+.room img {
+  width: 100%;
+  height: 100%;
+  margin-left: 20px;
+}
+
+.room h3 {
+  margin: 0;
+  padding: 0;
+}
+
+
+/*------------footer------------*/
+@media only screen and (max-width:768px) {
+
+  /*------------home------------*/
+  footer .grid,
+  .blog .grid,
+  .offer2 .grid,
+  .wrapper2 .content,
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .home h1 {
+    font-size: 100px;
+  }
+
+  .home {
+    height: 80vh;
+  }
+
+  .home .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-gap: 15px;
+  }
+
+  .home .box:nth-last-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 3;
+  }
+
+  /*------------home------------*/
+  /*------------about------------*/
+  .left, .right {
+    width: 100%;
+  }
+
+  .area .content,
+  .room .content,
+  .about .content {
+    flex-direction: column;
+  }
+
+  .wrapper2::after,
+  .area .left::after,
+  .timer.about::before,
+  .timer.about::after,
+  .about .right::after,
+  .about::before,
+  .about::after {
+    display: none;
+  }
+
+  /*------------about------------*/
+  /*------------wrapper------------*/
+  .wrapper .container99 {
+    max-width: 80%;
+    margin: auto;
+  }
+
+  /*------------wrapper2------------*/
+  ------------room------------
+  .room img {
+    margin: 0;
+    margin-top: 50px;
+  }
+
+}
+
+
+
+@media only screen and (max-width:512px) {
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  /*------------wrapper------------*/
+  .wrapper .container99 {
+    max-width: 90%;
+  }
+
+  .wrapper {
+    height: 100vh;
+  }
+
+  .wrapper .item {
+    padding: 20px;
+    border: 0 solid #F3F3F3;
+  }
+
+  .offer2.wrapper {
+    height: 170vh;
+  }
+}
+
+
+</style>
+
+
+<section class="room wrapper2 top" id="room">
+  <div class="container99">
+    <div class="heading">
+      <h5>OUR ROOMS</h5>
+      <h2>Fascinating rooms & suites </h2>
+    </div>
+    <div class="content flex mtop">
+      <div class="left grid2">
+        <div class="box">
+          <i class="fas fa-desktop"></i>
+          <p>Free Cost</p>
+          <h3>No booking fee</h3>
+        </div>
+        <div class="box">
+          <i class="fas fa-dollar-sign"></i>
+          <p>Free Cost</p>
+          <h3>Best rate guarantee</h3>
+        </div>
+        <div class="box">
+          <i class="fab fa-resolving"></i>
+          <p>Free Cost</p>
+          <h3>Reservations 24/7</h3>
+        </div>
+        <div class="box">
+          <i class="fal fa-alarm-clock"></i>
+          <p>Free Cost</p>
+          <h3>High-speed Wi-Fi</h3>
+        </div>
+        <div class="box">
+          <i class="fas fa-mug-hot"></i>
+          <p>Free Cost</p>
+          <h3>Free breakfast</h3>
+        </div>
+        <div class="box">
+          <i class="fas fa-user-tie"></i>
+          <p>Free Cost</p>
+          <h3>One person free</h3>
+        </div>
+      </div>
+      <div class="right">
+        <img src="main_page_pics/r.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Image Slider Start -->
+  <section>
+    <center>
+      <h1 class="h11">Discover our Rooms & Suites</h1>
+      <div class="slider">
+        <div class="slides">
+          <!-- Radio Button Start  -->
+          <input type="radio" name="radio-btn" id="radio1">
+          <input type="radio" name="radio-btn" id="radio2">
+          <input type="radio" name="radio-btn" id="radio3">
+          <input type="radio" name="radio-btn" id="radio4">
+          <!-- Radio Button Close  -->
+
+          <!-- Slide Image Start -->
+          <div class="slide first">
+            <img src="main_page_pics/roompic5.jpg" alt="Room Picture">
+          </div>
+          <div class="slide">
+            <img src="main_page_pics/roompic2.jpg" alt="Room Picture">
+          </div>
+          <div class="slide">
+            <img src="main_page_pics/roompic3.jpg" alt="Room Picture">
+          </div>
+          <div class="slide">
+            <img src="main_page_pics/roompic4.jpg" alt="Room Picture">
+          </div>
+          <!-- Slide Image Close -->
+
+          <!-- Automatic Navigation Start -->
+          <div class="navigation-auto">
+            <div class="auto-btn-1"></div>
+            <div class="auto-btn-2"></div>
+            <div class="auto-btn-3"></div>
+            <div class="auto-btn-4"></div>
+          </div>
+          <!-- Automatic Navigation Close -->
+        </div>
+
+        <!-- Mannual Navigation Start -->
+        <div class="navigation-mannual">
+          <label for="radio1" class="mannual-btn"></label>
+          <label for="radio2" class="mannual-btn"></label>
+          <label for="radio3" class="mannual-btn"></label>
+          <label for="radio4" class="mannual-btn"></label>
+        </div>
+        <!-- Mannual Navigation Close -->
+      </div>
+    </center>
+  </section>
+
+  <!-- Image Slider Close -->
+  <script>
+    var counter = 1;
+    setInterval(function () {
+      document.getElementById('radio' + counter).checked = true;
+      counter++;
+
+      if (counter > 4) {
+        counter = 1
+      }
+
+    }, 3000);
+  </script>
+
+
+
+  <!-- Contact Us section -->
+  <section class="ContactUs">
+    <div class="box6">
+      <h1>Contact Us</h1>
+      <form>
+        <input type="text" name="FullName" placeholder="First and Last Name" required>
+        <input type="text" name="Email" placeholder="Enter your email" required>
+        <textarea placeholder="Enter your message"></textarea>
+        <input type="submit" value="Send Message">
+      </form>
+  </section>
+
+
+
+  <!-- Footer -->
+  <footer>
+    <a href="#" class="Mediaicons Mediaicons-faceook">
+      <ion-icon name="logo-facebook"></ion-icon>
+    </a>
+    <a href="#" class="Mediaicons Mediaicons-twitter">
+      <ion-icon name="logo-twitter"></ion-icon>
+    </a>
+    <a href="#" class="Mediaicons Mediaicons-instagram">
+      <ion-icon name="logo-instagram"></ion-icon>
+    </a>
+    <a href="#" class="Mediaicons Mediaicons-youtube">
+      <ion-icon name="logo-youtube"></ion-icon>
+    </a>
+    <a href="#" class="Mediaicons Mediaicons-google">
+      <ion-icon name="logo-google"></ion-icon>
+    </a>
+  </footer>
+
+</body>
+
+</html>
