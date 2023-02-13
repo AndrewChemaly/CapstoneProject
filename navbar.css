@@ -10,6 +10,7 @@ body {
 
 
 header {
+    /* position: fixed; */
     color: whitesmoke;
     padding: 1em;
     background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(41, 14, 68, 0.6225840678068102) 0%, rgba(4, 98, 152, 1) 100%, rgba(17, 225, 160, 1) 100%);
