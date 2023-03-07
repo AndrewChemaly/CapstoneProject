@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="navbar.css">
+    <!-- this script is for the social media icons in the footer -->
+    <script src="navbar.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- this link is for the downwards arrow on Plan & book and services -->
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+
+    <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script> -->
+
+
+    <style>
+        body {
+            background: linear-gradient(0deg, rgba(34,148,195,1) 0%, rgba(18,2,56,1) 100%);
+
+            }
+            
+            h1 {
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+        
+        h2 {
+            font-weight: bold;
+            font-size: 0.5rem;
+        }
+
+        p {
+            font-weight: 35;
+            font-size: 1rem;
+        }
+
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+        }
+
+
+
+
+        .container {
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .horizontalLine {
+            width: 60%;
+            margin: auto;
+        }
+
+        .FAQheader {
+            color: white;
+            cursor: pointer;
+            padding-top: 1.875rem;
+            padding-bottom: 1.875rem;
+            padding-left: 1rem;
+
+            width: 58%;
+            margin: auto;
+        }
+
+        .Active {
+            background-color: rgb(56, 146, 199);
+        }
+
+
+        .FAQbody {
+            color: white;
+            margin: auto;
+            width: 56%;
+            padding: 1.875rem 1.25rem;
+            display: none;
+        }
+
+        .FAQheader:after {
+            content: '\02795';
+            /* this is the Unicode character for + */
+            font-size: 1rem;
+            float: right;
+        }
+
+        .Active:after {
+            content: "\2796";
+            /* this is the Unicode character for - */
+        }
+
+
+        .textcenter img {
+            width: 100%;
+        }
+
+
+        .textcenter {
+            position: relative;
+        }
+
+        .textcenter .text-centered {
+            animation: shaketxt 3s infinite;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            position: absolute;
+            top: 30%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 4rem;
+            font-weight: bolder;
+            color: white;
+            font-weight: 500;
+        }
+
+        @keyframes shaketxt {
+            0% {
+                transform: translateY(0)
+            }
+
+            25% {
+                transform: translateY(10px);
+            }
+
+            50% {
+                transform: translateY(10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+    
+
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+          <ul>
+            <li><a class="active" href="main_page.php">Home Page</a></li>
+            <div class="subnav">
+              <li><a href="book.html">Book Room<i class="fa fa-caret-down"></i></a></li>
+              <div class="subnav-content">
+                <li><a href="book.html">Book a Room</a></li>
+                <li><a href="flight_schedule_search.php">Room Status</a></li>
+                <!-- <li><a href="manage_booking.php">Manage Booking</a></li> -->
+                <!-- <li><a href="FlightStatus.php">Flight Status</a></li> -->
+              </div>
+            </div>
+            <div class="subnav">
+              <li><a href="PassengerServices.html">Facilities<i class="fa fa-caret-down"></i></a></li></button>
+              <div class="subnav-content">
+                <li><a href="BaggageInfo.html">Dining</a></li>
+                <li><a href="PassengerServices.html">Swimming Pool</a></li>
+                <li><a href="cargo.html">Gym</a></li>
+                <!-- <li><a href="checkin.php">Check-in</a></li> -->
+                <!-- <?php 
+                if($flag == 0){
+                  print'<li><a href="admin.html">Admin</a></li>';
+                }
+                ?> -->
+                <!-- <li><a href="admin.html">Admin</a></li> -->
+              </div>
+            </div>
+            <li><a href="CovidRestrictions.html">Covid Restrictions</a></li>
+            <li><a href="Faq.html">FAQ</a>
+            <li><a href="login.php">Login/Register</a>
+          </ul>
+  
+          <!-- hamburger menu, only essentiel links -->
+          <div class="topnav">
+            <a href="main_page.php" class="active">
+              <ion-icon name="airplane-outline"></ion-icon>
+            </a>
+            <div id="myLinks">
+              <a href="book.html">Book a Room</a>
+              <a href="checkin.php">Check-in</a>
+              <a href="login.php">Login</a>
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+            </a>
+        </nav>
+      </header>
+  
+    <figure class="textcenter">
+        <img src="faq_pics/faq.png" width="100%" height="400" alt="AirlinePicture">
+        <h1 class="text-centered"></h1>
+    </figure>
+
+
+    <main>
+        <section class="container">
+            <h1 class="FAQheader">What is the usual Check In time?</h1>
+            <div class="FAQbody">
+                <p>Our standard Check In time is between 1 and 3 pm. However, you may check in earlier based on availability.</p>
+            </div>
+            </div>
+
+            <hr class="horizontalLine">
+            <h1 class="FAQheader">What is the Check Out time?</h1>
+            <div class="FAQbody">
+                <p>Our standard Check Out time is 12 pm. However, you may check out later based on availability.</p>
+            </div>
+            </div>
+
+            <hr class="horizontalLine">
+            <h1 class="FAQheader">Can i cancel my reservation?</h1>
+            <div class="FAQbody">
+                <p>Our reservation policy: if a customer cancels his reservation, only the reservation fee will be
+                    charged. If the customer bought a ticket and canceled his reservation before the deadline, 50% of
+                    the fee will be refunded. If the deadline passes, no fee will be refunded.</p>
+            </div>
+            </div>
+
+            <hr class="horizontalLine">
+            <div class="FAQfour">
+                <h1 class="FAQheader">What services and access to facilities do you offer?</h1>
+                <div class="FAQbody">
+                    <p>Along booking rooms, we offer several services such as breakfast, dinner, launch, access to the gym and swimming pool </p>
+                </div>
+            </div>
+
+            <hr class="horizontalLine">
+            <div class="FAQfive">
+                <h1 class="FAQheader">Are there any Covid-19 Guidelines?</h1>
+                <div class="FAQbody">
+                    <p>Yes, you may check our <a href=CovidRestrictions.html>Covid Restrictions</a> page.</p>
+                </div>
+            </div>
+
+            <hr class="horizontalLine">
+            <h1 class="FAQheader">Can i Check-in online?</h1>
+            <div class="FAQbody">
+                <p>Yes, you may check-in at our <a href=checkin.html>check-in</a> page.</p>
+            </div>
+            </div>
+
+            <hr class="horizontalLine">
+            <h1 class="FAQheader">Is our information safely stored?</h1>
+            <div class="FAQbody">
+                <p>We take your privacy very seriously, all personal information and credentials are stored in a secure
+                    manner.</p>
+            </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        var k;
+        var faq = document.getElementsByClassName("FAQheader");
+        for (k = 0; k < faq.length; k++) {
+            faq[k].addEventListener("click", function () {
+                this.classList.toggle("Active");
+                /* this will show/hide Active panel */
+                var body = this.nextElementSibling;
+                if (body.style.display === "block")
+                    body.style.display = "none";
+                else
+                    body.style.display = "block";
+            });
+        }
+    </script>
+
+
+</body>
+
+</html>
