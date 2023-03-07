@@ -81,7 +81,7 @@
             padding: 8px;
             border: none;
             border-radius: 4px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             background-color: #e0e0e0;
             font-size: 16px;
             color: #333;
@@ -99,7 +99,7 @@
             z-index: 1;
         }
 
-        select{
+        select {
             /* width: 90%; */
             padding: 8px;
             border: none;
@@ -186,7 +186,7 @@
         @media only screen and (max-width: 1530px) {
 
             .card-header {
-                font-size: 10px;
+                font-size: 15px;
             }
 
             input[type="text"],
@@ -202,14 +202,14 @@
                 display: block;
             }
 
-            select{
+            select {
                 width: 70%;
                 padding: 4px;
                 margin-bottom: 3px;
             }
 
             /* need to make it responsive or keep it like that */
-            #passwordDiv {
+            /* #passwordDiv {
                 display: none;
             }
 
@@ -227,8 +227,55 @@
 
             #cvvDiv {
                 display: none;
+            } */
+
+        }
+
+        @media only screen and (max-width: 1360px) {
+
+            .card-header {
+                font-size: 10px;
             }
-            
+
+            input[type="text"],
+            input[type="password"],
+            input[type="card"],
+            input[type="submit"] {
+                width: 70%;
+                padding: 4px;
+                margin-bottom: 3px;
+            }
+
+            label {
+                display: block;
+            }
+
+            select {
+                width: 70%;
+                padding: 4px;
+                margin-bottom: 3px;
+            }
+
+            /* need to make it responsive or keep it like that */
+            /* #passwordDiv {
+                display: none;
+            }
+
+            #cardDiv {
+                display: none;
+            }
+
+            #emailDiv {
+                display: none;
+            }
+
+            #usernameDiv {
+                display: none;
+            }
+
+            #cvvDiv {
+                display: none;
+            } */
         }
     </style>
 </head>
@@ -292,7 +339,7 @@
                     <label for="username">Username</label>
                     <input name="username" id="username" type="text" placeholder="Enter your username" required
                         maxlength="20">
-                        <div id="usernameDiv"></div>
+                    <div id="usernameDiv"></div>
 
                     <label for="password">Password</label>
                     <div class="password-wrapper">
@@ -386,7 +433,7 @@
 
             // set up callback function and store it
             asyncRequest.addEventListener("readystatechange",
-                function() {
+                function () {
                     if (asyncRequest.readyState === 4 && asyncRequest.status === 200) usernameTable(asyncRequest.responseText);
                     //alert(asyncRequest.responseText);
                 }, false);
@@ -463,12 +510,14 @@
                 checker.disabled = true;
                 alert.style.color = "red";
                 alert.style.marginTop = "-10px";
+                alert.style.padding = "7px";
                 alert.innerHTML = "Password must be at least 8 characters long!";
                 return false;
             } else {
                 checker.disabled = false;
                 alert.style.color = "green";
                 alert.style.marginTop = "-10px";
+                alert.style.padding = "7px";
                 alert.innerHTML = "Password is valid!";
                 return true;
             }
@@ -488,11 +537,13 @@
                 document.getElementById("emailDiv").style.color = "green";
                 document.getElementById("emailDiv").innerHTML = "Valid Email";
                 alert.style.marginTop = "-10px";
+                alert.style.padding = "7px";
                 checker.disabled = false;
             } else {
                 document.getElementById("emailDiv").style.color = "red";
                 document.getElementById("emailDiv").innerHTML = "Invalid Email";
                 alert.style.marginTop = "-10px";
+                alert.style.padding = "7px";
                 checker.disabled = true;
             }
         }
@@ -509,18 +560,20 @@
 
 
             // CardValid = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/.test(Card);
-                CardValid = /^4[0-9]{12}(?:[0-9]{3})?$|^5[1-5][0-9]{14}$|^3[47][0-9]{13}$|^6(?:011|5[0-9]{2})[0-9]{12}$/.test(Card);
+            CardValid = /^4[0-9]{12}(?:[0-9]{3})?$|^5[1-5][0-9]{14}$|^3[47][0-9]{13}$|^6(?:011|5[0-9]{2})[0-9]{12}$/.test(Card);
 
             // valid test case: 4111111111111111   4012888888881881  (must start with 4 and 16 digits)
             if (CardValid) {
                 document.getElementById("cardDiv").innerHTML = "Valid Card number";
                 document.getElementById("cardDiv").style.color = "green";
                 alert.style.marginTop = "-10px";
+                alert.style.padding = "7px";
                 checker.disabled = false;
             } else {
                 document.getElementById("cardDiv").innerHTML = "Invalid Card number";
                 document.getElementById("cardDiv").style.color = "red";
                 alert.style.marginTop = "-10px";
+                alert.style.padding = "7px";
                 checker.disabled = true;
             }
         }
@@ -541,11 +594,13 @@
                 document.getElementById("cvvDiv").innerHTML = "Valid CVV number";
                 document.getElementById("cvvDiv").style.color = "green";
                 alert.style.marginTop = "-10px";
+                alert.style.padding = "7px";
                 checker.disabled = false;
             } else {
                 document.getElementById("cvvDiv").innerHTML = "Invalid CVV number";
                 document.getElementById("cvvDiv").style.color = "red";
                 alert.style.marginTop = "-10px";
+                alert.style.padding = "7px";
                 checker.disabled = true;
             }
         }
