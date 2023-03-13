@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Basic styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }    
+        h1 {
+            margin-top: 0;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        /* Buttons */
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .button:hover {
+            background-color: #666;
+        }
+
+        .button-group {
+            margin-bottom: 20px;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Forms */
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+        }
+        input[type="submit"]:hover {
+            background-color: #666;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <div class="container">
+        <h2>Rooms</h2>
+        <div class="button-group">
+            <button id="show-all-rooms" class="button">Show All Rooms</button>
+            <button id="show-reserved-rooms" class="button">Show All Reserved Rooms</button>
+            <button id="show-free-rooms" class="button">Show All Free Rooms</button>
+            <button id="cancel-booking" class="button">Cancel Booking</button>
+        </div>
+        <h3>Add a Room:</h3>
+        <form>
+            <label for="room-number">Room Number:</label>
+            <input type="text" id="room-number" name="room-number">
+            <label for="room-type">Room Type:</label>
+            <select id="room-type" name="room-type">
+                <option value="single">Single</option>
+                <option value="double">Double</option>
+                <option value="suite">Suite</option>
+            </select>
+            <input type="submit" value="Add Room">
+        </form>    
+        
+        <form action="/free-room" method="POST">
+            <label for="room-id">Room ID:</label>
+            <input type="text" id="room-id" name="room_id" required>
+            <input type="submit" value="Free The Room">
+          </form>
+          
+
+        <h2>All
+            Customers and Staff</h2>
+            <div class="button-group">
+            <button id="show-all-customers" class="button">Show All Customers</button>
+            <button id="show-all-staff" class="button">Show All Staff</button>
+            </div>
+            <h3>Add a Staff:</h3>
+            <form>
+            <label for="staff-name">Name:</label>
+            <input type="text" id="staff-name" name="staff-name">
+            <label for="staff-email">Email:</label>
+            <input type="text" id="staff-email" name="staff-email">
+            <label for="staff-phone">Phone:</label>
+            <input type="text" id="staff-phone" name="staff-phone">
+            <label for="staff-role">Role:</label>
+            <select id="staff-role" name="staff-role">
+                <option value="manager">Manager</option>
+                <option value="receptionist">Receptionist</option>
+                <option value="housekeeper">Roomkeeper</option>
+            </select>
+            <input type="submit" value="Add Staff">
+            </form>
+            </div>
+            <script>
+            // Code to handle button clicks and form submissions will go here.
+            document.getElementById("show-all-rooms").addEventListener("click", function(){
+            // Code to show all rooms goes here.
+            console.log("Showing all rooms.");
+            });
+            document.getElementById("show-reserved-rooms").addEventListener("click", function(){
+            // Code to show reserved rooms goes here.
+            console.log("Showing reserved rooms.");
+            });
+            document.getElementById("show-free-rooms").addEventListener("click", function(){
+            // Code to show free rooms goes here.
+            console.log("Showing free rooms.");
+            });
+            document.getElementById("free-room").addEventListener("click", function(){
+            // Code to free a room goes here.
+            console.log("Freeing a room.");
+            });
+            document.getElementById("cancel-booking").addEventListener("click", function(){
+            // Code to cancel a booking goes here.
+            console.log("Canceling a booking.");
+            });
+            document.getElementById("show-all-staff").addEventListener("click", function(){
+            // Code to show all staff members goes here.
+            console.log("Showing all staff members.");
+            });
+            document.getElementById("show-all-customers").addEventListener("click", function(){
+            // Code to show all customers goes here.
+            console.log("Showing all customers.");
+            });
+            document.querySelector('form').addEventListener("submit", function(e){
+            e.preventDefault(); //prevent the form from submitting
+            const form = e.target;
+            const formData = new FormData(form);
+            const data = {};
+            for (var key of formData.keys()) {
+            data[key] = formData.get(key);
+            }
+            console.log(data);
+            });
+            </script>
+            
+            </body>
+            </html>
