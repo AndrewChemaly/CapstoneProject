@@ -1,0 +1,9 @@
+{
+    "name": "wh/fyp",
+    "autoload": {
+        "psr-4": {
+            "Wh\\Fyp\\": "src/"
+        }
+    },
+    "require": {"mongodb/mongodb": "^1.11"}
+}
