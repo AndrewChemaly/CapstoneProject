@@ -7,7 +7,7 @@
     <script src="navbar.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- this link is for the downwards arrow on Plan & book and services -->
-    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <!-- <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script> -->
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"
         integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
@@ -28,7 +28,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 93vh;
+            height: 100vh;
             animation: slide-in 0.5s ease-in-out;
         }
 
@@ -46,6 +46,7 @@
 
         .card {
             width: 500px;
+            /* height: 650px; */
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -300,12 +301,6 @@
                     <li><a href="BaggageInfo.html">Dining</a></li>
                     <li><a href="PassengerServices.html">Swimming Pool</a></li>
                     <li><a href="cargo.html">Gym</a></li>
-                    <!-- <li><a href="checkin.php">Check-in</a></li> -->
-                    <!-- <?php 
-            if($flag == 0){
-              print'<li><a href="admin.html">Admin</a></li>';
-            }
-            ?> -->
                     <!-- <li><a href="admin.html">Admin</a></li> -->
                 </div>
             </div>
@@ -335,7 +330,13 @@
         <div class="card">
             <div class="card-header">Register</div>
             <div class="card-body">
-                <form method="post" action="login.php" onsubmit="passwordValidater()">
+                <form method="post" action="register.php">
+
+                    <label for="fullname">Full Name</label>
+                    <input name="fullname" id="fullname" type="text" placeholder="Enter your Full Name" required
+                        maxlength="50">
+                    <div id="fullnameDiv"></div>
+
                     <label for="username">Username</label>
                     <input name="username" id="username" type="text" placeholder="Enter your username" required
                         maxlength="20">
@@ -357,7 +358,7 @@
 
 
                     <label for="CreditCard">Credit Card Number</label>
-                    <input name="card" id="Card" type="card" placeholder="4xxxxxxxxxxxxxxx (16 digits)"
+                    <input name="card" id="card" type="card" placeholder="4xxxxxxxxxxxxxxx (16 digits)"
                         onkeyup="validateCard()" required>
                     <div id="cardDiv"></div>
 
@@ -379,8 +380,6 @@
 
                     <label for="year">Expiry Year</label>
                     <select name="year" id="year">
-                        <option value="2021">2021</option>
-                        <option value="2022">2022</option>
                         <option value="2023">2023</option>
                         <option value="2024">2024</option>
                         <option value="2025">2025</option>
@@ -413,12 +412,12 @@
 
                     <br>
                     <label for="cvv">CVV</label>
-                    <input name="cvv" id="Cvv" type="text" placeholder="Enter your CVV" required maxlength="4">
+                    <input name="cvv" id="cvv" type="text" placeholder="Enter your CVV" required maxlength="4">
                     <div id="cvvDiv"></div>
 
 
-                    <input type="submit" id="submit" name="submit" value="Register">
-                    <p class="register"> Already have an account yet? <a href="register.php">Login.</a></p>
+                    <input type="submit" name="submit" id="submit" value="Register">
+                    <p class="register"> Already have an account yet? <a href="login.php">Login.</a></p>
                     <input type="reset" value="Clear All">
                 </form>
             </div>
@@ -426,6 +425,8 @@
     </div>
 
     <script>
+
+        var checker = document.getElementById("submit");
 
         // ajax live username validation (if username is avaialble or not)
         try {
@@ -467,8 +468,7 @@
                 var table = document.getElementById("usernameDiv");
 
                 let x = document.getElementById("username");
-                // x.value = x.value.toLowerCase();
-                var bt = document.getElementById("submit");
+                x.value = x.value.toLowerCase();
 
                 for (var i = 0; i < data.length; i++) {
                     // window.alert(data[i]);
@@ -476,31 +476,21 @@
                         flag = 1;
                         table.style.color = "red";
                         table.innerHTML = 'Username already exists! Please pick another one.';
-                        bt.disabled = true;
+                        checker.disabled = true;
                         return false;
                     } else {
                         table.style.color = "green";
                         table.innerHTML = 'Username Available!';
-                        bt.disabled = false;
+                        checker.disabled = false;
                     }
                 }
             }
         }
 
 
-        // hide&show password
-        // const togglePassword = document.querySelector('.toggle-password');
-        // const passwordField = document.querySelector('input[type="password"]');
-
-        // togglePassword.addEventListener('click', function () {
-        //     const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
-        //     passwordField.setAttribute('type', type);
-        //     togglePassword.textContent = type === 'password' ? '👀' : '🙈';
-        // });
-
+        // var checker = document.getElementById("submit");
 
         // password complexity validation
-        var checker = document.getElementById("submit");
         function passwordValidater() {
             var input_password = document.getElementById("password");
             var alert = document.getElementById("passwordDiv");
@@ -550,7 +540,7 @@
 
 
         // Credit Card Visa Validation
-        document.getElementById("Card").addEventListener("blur", function () {
+        document.getElementById("card").addEventListener("blur", function () {
             validateCard(this.value);
         }, false);
 
@@ -580,7 +570,7 @@
 
 
         // CVV Validation
-        document.getElementById("Cvv").addEventListener("blur", function () {
+        document.getElementById("cvv").addEventListener("blur", function () {
             validateCvv(this.value);
         }, false);
 
@@ -608,6 +598,117 @@
 
 
     </script>
+
+
+    <?php
+
+    require 'vendor/autoload.php';
+
+    $client = new MongoDB\Client("mongodb://localhost:27017");
+    $database = $client->Hotel_Reservation;
+
+    define("encryption_method", "AES-128-CBC");
+    define("key", "Thats my Kung Fu");
+    $customer_collection = $client->Hotel_Reservation->Customers;
+
+    // print("<script>alert('here');</script>");
+    
+
+
+    function encrypt($data)
+    {
+
+        $key = key;
+        $plaintext = $data;
+        $ivlen = openssl_cipher_iv_length($cipher = encryption_method);
+        $iv = openssl_random_pseudo_bytes($ivlen);
+        $ciphertext_raw = openssl_encrypt($plaintext, $cipher, $key, $options = OPENSSL_RAW_DATA, $iv);
+        $hmac = hash_hmac('sha256', $ciphertext_raw, $key, $as_binary = true);
+        $ciphertext = base64_encode($iv . $hmac . $ciphertext_raw);
+        return $ciphertext;
+    }
+
+    function decrypt($data)
+    {
+        $key = key;
+        $c = base64_decode($data);
+        $ivlen = openssl_cipher_iv_length($cipher = encryption_method);
+        $iv = substr($c, 0, $ivlen);
+        $hmac = substr($c, $ivlen, $sha2len = 32);
+        $ciphertext_raw = substr($c, $ivlen + $sha2len);
+        $original_plaintext = openssl_decrypt($ciphertext_raw, $cipher, $key, $options = OPENSSL_RAW_DATA, $iv);
+        $calcmac = hash_hmac('sha256', $ciphertext_raw, $key, $as_binary = true);
+        if (hash_equals($hmac, $calcmac)) {
+            return $original_plaintext;
+        }
+    }
+
+
+
+
+    if (isset($_POST['submit'])) {
+
+
+        $inputtedFullName = $_POST['fullname'];
+        $inputtedUsername = $_POST['username'];
+        $inputtedEmail = $_POST['email'];
+        $inputtedPassword = $_POST['password'];
+        $inputtedCard = $_POST['card'];
+        $inputtedCVV = $_POST['cvv'];
+        $inputtedMonth = $_POST['month'];
+        $inputtedYear = $_POST['year'];
+
+        $flag = 0;
+
+
+
+
+        //this code part below was implemented before ajax, so when the user submits the form, it checks if the username already exists in the database and the user gets the error but
+        //since we need to use ajax and its asynchronous, we will comment this method as its no longer needed as live updates are shown to the user.
+    
+        // USERNAME IS UNIQUE, WE CANNOT ALLOW 2 USERS TO HAVE THE SAME ONE!
+        // $usernameResult = $customer_collection->find(['Username' => $inputtedUsername]);
+        // foreach ($usernameResult as $searchFor) {
+        //     $storedUsername = $searchFor['Username'];
+        //     if ($inputtedUsername == $storedUsername) {
+        //         $flag = 1;
+        //     }
+        // }
+        // if ($flag == 1) {
+        //     print("<script>window.alert('Username already exists! Please choose another one.');
+        //     window.location.assign('register.php');
+        //     </script>");
+        //     die();
+        // }
+    
+
+
+        $customer_collection = $client->Hotel_Reservation->Customers;
+
+        $newCustomers = [
+            [
+                'Username' => $inputtedUsername,
+                'Full_Name' => $inputtedFullName,
+                // 'Cookie' => '',
+                'Email' => $inputtedEmail,
+                'Password' => password_hash($inputtedPassword, PASSWORD_DEFAULT),
+                'Credit_Card_Number' => encrypt($inputtedCard),
+                'Credit_Card_CVV' => encrypt($inputtedCVV),
+                'Credit_Card_Expiration_Month' => $inputtedMonth,
+                'Credit_Card_Expiration_Year' => $inputtedYear
+            ],
+        ];
+        $insertManyResult = $customer_collection->insertMany($newCustomers);
+
+
+
+
+        print("<script>window.alert('Successfuly registered $inputtedUsername in the database. You can now Login')</script>");
+        echo "<script> window.location.assign('login.php'); </script>";
+    }
+
+
+    ?>
 
 </body>
 
