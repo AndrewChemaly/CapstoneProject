@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Dining Restaurant</title>
+    <link rel="stylesheet" href="navbar.css">
+    <!-- this script is for the social media icons in the footer -->
+    <script src="navbar.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- this link is for the downwards arrow on Plan & book and services -->
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+
+    <style>
+        main {
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Pool Description Styles */
+
+        .pool-description {
+            background-color: #f7f7f7;
+            padding: 100px 0;
+        }
+
+        .pool-description h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .pool-description p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* Pool Features Styles */
+
+        .pool-features {
+            padding: 80px 0;
+        }
+
+        .pool-features h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .pool-features ul {
+            list-style: none;
+        }
+
+        .pool-features li {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .pool-features li:before {
+            content: "\2022";
+            margin-right: 10px;
+            color: #333;
+        }
+
+        /* Pool Gallery Styles */
+
+        .pool-gallery {
+            padding: 80px 0;
+        }
+
+        .pool-gallery h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .pool-images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .pool-images img {
+            width: 32%;
+            margin-bottom: 20px;
+        }
+
+        .pool-reservation {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .pool-reservation h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .pool-reservation form {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            flex-basis: 48%;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #333;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #666;
+        }
+
+
+        .container {
+            margin: auto;
+            text-align: center;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a class="active" href="main_page.php">Home Page</a></li>
+                <div class="subnav">
+                    <li><a href="book.html">Book Room<i class="fa fa-caret-down"></i></a></li>
+                    <div class="subnav-content">
+                        <li><a href="book.html">Book a Room</a></li>
+                        <li><a href="flight_schedule_search.php">Room Status</a></li>
+                        <!-- <li><a href="manage_booking.php">Manage Booking</a></li> -->
+                        <!-- <li><a href="FlightStatus.php">Flight Status</a></li> -->
+                    </div>
+                </div>
+                <div class="subnav">
+                    <li><a href="PassengerServices.html">Facilities<i class="fa fa-caret-down"></i></a></li></button>
+                    <div class="subnav-content">
+                        <li><a href="BaggageInfo.html">Dining</a></li>
+                        <li><a href="PassengerServices.html">Swimming Pool</a></li>
+                        <li><a href="cargo.html">Gym</a></li>
+                        <!-- <li><a href="checkin.php">Check-in</a></li> -->
+                        <!-- <?php 
+                if($flag == 0){
+                  print'<li><a href="admin.html">Admin</a></li>';
+                }
+                ?> -->
+                        <!-- <li><a href="admin.html">Admin</a></li> -->
+                    </div>
+                </div>
+                <li><a href="CovidRestrictions.html">Covid Restrictions</a></li>
+                <li><a href="Faq.html">FAQ</a>
+                <li><a href="login.php">Login/Register</a>
+            </ul>
+
+            <!-- hamburger menu, only essentiel links -->
+            <div class="topnav">
+                <a href="main_page.php" class="active">
+                    <ion-icon name="airplane-outline"></ion-icon>
+                </a>
+                <div id="myLinks">
+                    <a href="book.html">Book a Room</a>
+                    <a href="checkin.php">Check-in</a>
+                    <a href="login.php">Login</a>
+                </div>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+        </nav>
+    </header>
+
+    <img src="dining_pics/dining1.jpg" alt="Dining Picture" style="width:100%; height: 400px;">
+
+    <section class="pool-description">
+        <div class="container">
+            <h2>Welcome to our Dining Facility</h2>
+            <p>Our Menu is filled with several options to satisy you.</p>
+        </div>
+    </section>
+
+    <style>
+        .dining-features {
+            background-color: #f9f9f9;
+            padding: 60px 0;
+        }
+
+        .menu-item {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+            margin-bottom: 30px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .menu-item h3 {
+            font-size: 24px;
+            margin-top: 0;
+        }
+
+        .menu-item p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .menu-item img {
+            border-radius: 5px;
+            margin-bottom: 20px;
+            max-width: 100%;
+            width: 500px;
+            height: 300px;
+        }
+
+
+
+        .menu-item .price {
+            color: #d83b01;
+            display: block;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+
+    <section class="dining-features">
+        <div class="container">
+            <h2>Menu Features</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="menu-item">
+                        <img src="dining_pics/food1.jpg" alt="Steak" width="200">
+                        <h3>Steak</h3>
+                        <p>A juicy, tender steak cooked to perfection.</p>
+                        <span class="price">$20.99</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="menu-item">
+                        <img src="dining_pics/food2.jpg" alt="Salmon" width="200">
+                        <h3>Salmon</h3>
+                        <p>Fresh, wild-caught salmon with a lemon butter sauce.</p>
+                        <span class="price">$18.99</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="menu-item">
+                        <img src="dining_pics/food3.jpg" alt="Pasta" width="200">
+                        <h3>Pasta</h3>
+                        <p>Homemade pasta with your choice of sauce.</p>
+                        <span class="price">$14.99</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="menu-item">
+                        <img src="dining_pics/food4.jpg" alt="Burger" width="200">
+                        <h3>Burger</h3>
+                        <p>A classic burger with all the fixings.</p>
+                        <span class="price">$12.99</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="pool-gallery" style="margin-top: -50px;">
+        <div class="container">
+            <h2>Dining Gallery</h2>
+            <div class="pool-images">
+                <img src="dining_pics/dining2.jpg" alt="Food Image">
+                <img src="dining_pics/dining3.jpg" alt="Food Image">
+                <img src="dining_pics/dining4.jpg" alt="Food Image">
+            </div>
+        </div>
+    </section>
+
+
+</body>
+
+
+</html>

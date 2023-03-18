@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>Home Page</title>
   <link href="bootstrap.min.css" rel="stylesheet">
-    
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="navbar.css">
@@ -119,7 +119,7 @@
     .box1,
     .box2,
     .box3 {
-      
+
       flex-basis: 70%;
       border-radius: 0.5em;
       flex-flow: column;
@@ -425,10 +425,10 @@
         margin-top: -7rem;
       }
 
-      form{
+      form {
         height: 25rem;
       }
-      
+
     }
 
 
@@ -438,15 +438,15 @@
     /* MEDIA QUERIES */
     @media (max-width:1340px) {
 
-      .box1{
+      .box1 {
         width: 100%;
         padding: 1rem;
       }
 
-      .box1 h1{
+      .box1 h1 {
         font-size: 2rem;
         margin-top: -1.5rem;
-        text-align:last;
+        text-align: last;
       }
 
       .z {
@@ -506,7 +506,7 @@
       /* .ContactUs{
         margin-top: -5rem;
       } */
-/* 
+      /* 
       textarea {
         width: 50%;
         height: 10rem;
@@ -518,7 +518,7 @@
         font-family: sans-serif;
       } */
 
-      form{
+      form {
         height: 25rem;
       }
 
@@ -621,7 +621,7 @@
         height: 7rem;
         margin-top: -10rem;
       }
-      
+
 
     }
 
@@ -639,7 +639,7 @@
         height: 10rem;
         margin-top: -10rem;
       }
-      
+
 
     }
   </style>
@@ -652,31 +652,36 @@
         <ul>
           <li><a class="active" href="main_page.php">Home Page</a></li>
           <div class="subnav">
-            <li><a href="book.html">Book Room<i class="fa fa-caret-down"></i></a></li>
-            <div class="subnav-content">
-              <li><a href="book.html">Book a Room</a></li>
-              <li><a href="flight_schedule_search.php">Room Status</a></li>
-              <!-- <li><a href="manage_booking.php">Manage Booking</a></li> -->
-              <!-- <li><a href="FlightStatus.php">Flight Status</a></li> -->
+            <!-- <li><a href="book.html">Book Room<i class="fa fa-caret-down"></i></a></li> -->
+            <!-- <div class="subnav-content"> -->
+            <!-- <li><a href="book.html">Book a Room</a></li> -->
+            <!-- <li><a href="rooms.php">Room Status</a></li> -->
+            <!-- </div> -->
+            <div class="subnav">
+              <li><a href="rooms.php">Book Room<i class=""></i></a></li>
+              <!-- <div class="subnav-content"> -->
+              <!-- <li><a href="book.html">Book a Room</a></li> -->
+              <!-- <li><a href="rooms.php">Room Status</a></li> -->
+              <!-- </div> -->
             </div>
           </div>
           <div class="subnav">
-            <li><a href="PassengerServices.html">Facilities<i class="fa fa-caret-down"></i></a></li></button>
+            <li><a href="dining.html">Facilities<i class="fa fa-caret-down"></i></a></li></button>
             <div class="subnav-content">
-              <li><a href="BaggageInfo.html">Dining</a></li>
-              <li><a href="PassengerServices.html">Swimming Pool</a></li>
-              <li><a href="cargo.html">Gym</a></li>
+              <li><a href="dining.html">Dining</a></li>
+              <li><a href="pool.html">Swimming Pool</a></li>
+              <li><a href="gym.html">Gym</a></li>
               <!-- <li><a href="checkin.php">Check-in</a></li> -->
-              <!-- <?php 
-              if($flag == 0){
-                print'<li><a href="admin.html">Admin</a></li>';
+              <!-- <?php
+              if ($flag == 0) {
+                print '<li><a href="admin.html">Admin</a></li>';
               }
               ?> -->
               <!-- <li><a href="admin.html">Admin</a></li> -->
             </div>
           </div>
-          <li><a href="CovidRestrictions.html">Covid Restrictions</a></li>
-          <li><a href="Faq.html">FAQ</a>
+          <!-- <li><a href="CovidRestrictions.html">Covid Restrictions</a></li> -->
+          <li><a href="faq.html">FAQ</a>
           <li><a href="login.php">Login/Register</a>
         </ul>
 
@@ -687,8 +692,8 @@
           </a>
           <div id="myLinks">
             <a href="book.html">Book a Room</a>
-            <a href="checkin.php">Check-in</a>
             <a href="login.php">Login</a>
+            <a href="register.php">Register</a>
           </div>
           <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
@@ -706,19 +711,17 @@
         <path
           d="M8 0c-.787 0-1.292.592-1.572 1.151A4.347 4.347 0 0 0 6 3v3.691l-2 1V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.191l-1.17.585A1.5 1.5 0 0 0 0 10.618V12a.5.5 0 0 0 .582.493l1.631-.272.313.937a.5.5 0 0 0 .948 0l.405-1.214 2.21-.369.375 2.253-1.318 1.318A.5.5 0 0 0 5.5 16h5a.5.5 0 0 0 .354-.854l-1.318-1.318.375-2.253 2.21.369.405 1.214a.5.5 0 0 0 .948 0l.313-.937 1.63.272A.5.5 0 0 0 16 12v-1.382a1.5 1.5 0 0 0-.83-1.342L14 8.691V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v.191l-2-1V3c0-.568-.14-1.271-.428-1.849C9.292.591 8.787 0 8 0Z" />
       </svg>Good Morinng, Andrew
-      <!-- <?php if ($flag==1)
-    print($entry['First_Name']  . " " . $entry['Last_Name']);
-    if($flag==0)
-    {
-      print("Admin " . $entry['Username']);
-    }
-    if($flag==2)
-    {
-      print("");
-      // just avoiding error msg
-    }
-    
-    ?>
+      <!-- <?php if ($flag == 1)
+        print($entry['First_Name'] . " " . $entry['Last_Name']);
+      if ($flag == 0) {
+        print("Admin " . $entry['Username']);
+      }
+      if ($flag == 2) {
+        print("");
+        // just avoiding error msg
+      }
+
+      ?>
      To ROA Airlines! -->
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" fill="currentColor"
         class="bi bi-airplane-engines-fill" viewBox="0 0 16 16">

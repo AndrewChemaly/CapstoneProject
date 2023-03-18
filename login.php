@@ -52,7 +52,7 @@ $database = $client->Hotel_Reservation;
                     ['Username' => $inputtedUsername],
                     ['$set' => ['Cookie' => $h]]
                 );
-                print("<script>window.alert('Welcome $inputtedUsername!')</script>");
+                // print("<script>window.alert('Welcome $inputtedUsername!')</script>");
                 echo "<script> window.location.assign('main_page.php'); </script>";
             }
         }

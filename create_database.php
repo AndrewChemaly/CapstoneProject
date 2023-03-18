@@ -2,12 +2,12 @@
 require 'vendor/autoload.php';
 $client = new MongoDB\Client("mongodb://localhost:27017");
 $database = $client->Hotel_Reservation;
-//  $database -> createCollection('Customers');
 
-$customer_collection = $client->Hotel_Reservation->Customers;
 define("encryption_method", "AES-128-CBC");
 define("key", "Thats my Kung Fu");
 
+//  $database -> createCollection('Customers');
+$customer_collection = $client->Hotel_Reservation->Customers;
 $newCustomers = [
     [
         'Username' => 'andrewsafo01',
@@ -171,14 +171,14 @@ $newRooms = [
         'Price_per_Night' => 30,
         'Location' => 'Beirut',
         'Type' => 'Single',
-        'Status' => 'Available',
+        'Status' => 'Reserved',
         'Capacity' => 1
     ],
     [
         'Room_Id' => 2,
         'Price_per_Night' => 30,
         'Location' => 'Beirut',
-        'Type' => 'Single',
+        'Type' => 'Family',
         'Status' => 'Available',
         'Capacity' => 1
     ],
@@ -186,7 +186,7 @@ $newRooms = [
         'Room_Id' => 3,
         'Price_per_Night' => 30,
         'Location' => 'Beirut',
-        'Type' => 'Single',
+        'Type' => 'Double',
         'Status' => 'Available',
         'Capacity' => 1
     ],
@@ -195,7 +195,7 @@ $newRooms = [
         'Price_per_Night' => 30,
         'Location' => 'Beirut',
         'Type' => 'Single',
-        'Status' => 'Available',
+        'Status' => 'Reserved',
         'Capacity' => 1
     ],
     [
@@ -211,6 +211,42 @@ $newRooms = [
 $insertManyResult = $room_collection->insertMany($newRooms);
 
 // $database -> createCollection('Admin');
+
+// $database -> createCollection('Staff');
+
+// add staff collection
+$staff_collection = $client->Hotel_Reservation->Staff;
+
+$newStaff = [
+    [
+        'Full_Name' => 'Irelia Julie',
+        'Date_of_Birth' => '1999-12-12',
+        'Email' => 'IreliaJulie@gmail.com',
+        'Phone_Number' => '01456789',
+        'Salary' => 3000,
+        'Position' => 'Manager'
+    ],
+    [
+        'Full_Name' => 'Lesly Smith',
+        'Date_of_Birth' => '1999-12-12',
+        'Email' => 'LeslySmith@hotmail.com',
+        'Phone_Number' => '09234683',
+        'Salary' => 2000,
+        'Position' => 'Receiptionist'
+    ],
+    [
+        'Full_Name' => 'Rambo John',
+        'Date_of_Birth' => '1990-12-12',
+        'Email' => 'rambojohn@gmail.com',
+        'Phone_Number' => '09234683',
+        'Salary' => 1000,
+        'Position' => 'Roomkeeper'
+    ]
+
+    ];
+
+$insertManyResult = $staff_collection->insertMany($newStaff);
+
 
 $admin_collection = $client->Hotel_Reservation->Admin;
 
