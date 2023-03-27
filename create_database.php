@@ -176,19 +176,19 @@ $newRooms = [
     ],
     [
         'Room_Id' => 2,
-        'Price_per_Night' => 30,
+        'Price_per_Night' => 70,
         'Location' => 'Beirut',
         'Type' => 'Family',
         'Status' => 'Available',
-        'Capacity' => 1
+        'Capacity' => 3
     ],
     [
         'Room_Id' => 3,
-        'Price_per_Night' => 30,
+        'Price_per_Night' => 50,
         'Location' => 'Beirut',
         'Type' => 'Double',
         'Status' => 'Available',
-        'Capacity' => 1
+        'Capacity' => 2
     ],
     [
         'Room_Id' => 4,

@@ -691,7 +691,7 @@
             <ion-icon name="airplane-outline"></ion-icon>
           </a>
           <div id="myLinks">
-            <a href="book.html">Book a Room</a>
+            <a href="rooms.php">Book a Room</a>
             <a href="login.php">Login</a>
             <a href="register.php">Register</a>
           </div>
@@ -737,7 +737,7 @@
     <!-- The Three Boxes hero sectionn -->
     <div class="z">
       <div class="box1">
-        <a href="book_a_trip.php">
+        <a href="rooms.php">
           <h1>Book Room</h1>
           <p>Buy or Reserve a Room</p>
         </a>
