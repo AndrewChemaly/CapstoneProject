@@ -7,44 +7,49 @@
         <link rel="stylesheet" href="rooms.css">
     </head>
     <body>
+        <center>
         <div>
             <h1>&#128269; Search Room</h1>
         </div>
-        <div class="room_display">
-            <br>
-            <h3 class="room_title">Room # 1</h3>
-            <img src="rooms_pics/room_100.jpg" class="room_img">
-            <div class="room_info">
-                <p>&#128176; Price/night: 30$</p>
-                <p>&#128205; Location: Beirut</p>
-                <p>&#127970; Type: Single</p>
-                <p>&#128308; Status: Reserved</p> <!-- green circle: 128994 -->
-                <p>&#128100; Capacity: 1 person</p>
-            </div>
-        </div>
-        <div class="room_display">
-            <br>
-            <h3 class="room_title">Room # 2</h3>
-            <img src="rooms_pics/room_200.jpg" class="room_img">
-            <div class="room_info">
-                <p>&#128176; Price/night: 70$</p>
-                <p>&#128205; Location: Beirut</p>
-                <p>&#127970; Type: Family</p>
-                <p>&#128994; Status: Available</p> <!-- green circle: 128994 -->
-                <p>&#128100; Capacity: 3 persons</p>
-            </div>
-        </div>
-        <div class="room_display">
-            <br>
-            <h3 class="room_title">Room # 3</h3>
-            <img src="rooms_pics/room_300.jpg" class="room_img">
-            <div class="room_info">
-                <p>&#128176; Price/night: 50$</p>
-                <p>&#128205; Location: Beirut</p>
-                <p>&#127970; Type: Double</p>
-                <p>&#128994; Status: Available</p> <!-- green circle: 128994 -->
-                <p>&#128100; Capacity: 2 persons</p>
-            </div>
-        </div>
+        <?php
+        use MongoDB\Operation\Find;
+        require 'vendor/autoload.php';
+
+        $client = new MongoDB\Client("mongodb://localhost:27017");
+        $database = $client->Hotel_Reservation;
+        $room_collection = $client->Hotel_Reservation->Rooms;
+        $result = $room_collection->find();
+
+        foreach ($result as $each) {
+            $green_red = "";
+            $person_s = "";
+            if($each["Capacity"] > 1){
+                $person_s = "persons";
+            }
+            else{
+                $person_s = "person";
+            }
+            if(strcasecmp($each["Status"],"Available") == 0){
+                $green_red = "&#128994;";
+            }
+            else{
+                $green_red = "&#128308;";
+            }
+            echo "<div class='room_display'>
+                    <br>
+                    <h3 class='room_title'>Room # ".$each["Room_Id"]."</h3>
+                    <img src='rooms_pics/room_".$each["Room_Id"].".jpg' class='room_img'>
+                    <div class='room_info'>
+                        <p>&#128176; Price/night: ".$each["Price_per_Night"]."$</p>
+                        <p>&#128205; Location: ".$each["Location"]."</p>
+                        <p>&#127970; Type: ".$each["Type"]."</p>
+                        <p>".$green_red." Status: ".$each["Status"]."</p>
+                        <p>&#128100; Capacity: ".$each["Capacity"]." ".$person_s."</p>
+                    </div>
+                  </div>";
+        }
+
+        ?>
+        </center>
     </body>
 </html>
