@@ -5,12 +5,57 @@
         <title>Wukong Hotel Rooms</title>
         <link rel="icon" href="rooms_pics/icon.jpg">
         <link rel="stylesheet" href="rooms.css">
+        <script src="rooms.js"></script> 
     </head>
     <body>
         <center>
-        <div>
-            <h1>&#128269; Search Room</h1>
+        <div style="margin-bottom: 15px;">
+            <h1 style="margin-bottom: 10px;">&#128269; Search Room</h1>
+            <div class="filters">
+            <div style="margin-top: 5px; margin-left: 10px; border: 1px solid white; border-radius: 10px; height: 33px;  background-color: white;">
+                <label for="Price_Range" style="float: left; margin-left: 5px; margin-top: 4px;">Price:</label>
+                <input type="range" min="1" max="100" value="50" class="slider" id="Price_Range" required>
+                <p id="output_price">0<span style="font-size: 14px; float: right;">💲</span></p>
+            </div>
+            <div style="margin-top: 5px; border: 1px solid white; border-radius: 10px; height: 33px;  background-color: white;">
+                <label for="locations" style="margin-left: 5px;">Location:</label>
+                <select id="locations" required style="margin-right: 5px; margin-top: 6px;">
+                    <option disabled selected>Choose</option>
+                    <option value="Beirut">Beirut</option>
+                    <option value="Tripoli">Tripoli</option>
+                    <option value="Sidon">Sidon</option>
+                    <option value="Jbeil">Jbeil</option>
+                    <option value="Batroun">Batroun</option>
+                </select>
+            </div>
+            <div style="margin-top: 5px; border: 1px solid white; border-radius: 10px; height: 33px;  background-color: white;">
+                <label for="type" style="margin-left: 5px;">Type:</label>
+                <select id="Type" required style="margin-right: 5px; margin-top: 6px;">
+                    <option disabled selected>Choose</option>
+                    <option value="Single">Single</option>
+                    <option value="Double">Double</option>
+                    <option value="Family">Family</option>
+                    <option value="Deluxe">Deluxe</option>
+                    <option value="Suite">Suite</option>
+                </select>
+            </div>
+            <div style="margin-top: 5px; border: 1px solid white; border-radius: 10px; height: 33px;  background-color: white;">
+                <label for="status" style="margin-left: 5px;">Status:</label>
+                <select id="status" required style="margin-right: 5px; margin-top: 6px;">
+                    <option disabled selected>Choose</option>
+                    <option value="Available">Available</option>
+                    <option value="Reserved">Reserved</option>
+                </select>
+            </div>
+            <div style="margin-top: 5px; margin-right: 10px; border: 1px solid white; border-radius: 10px; height: 33px;  background-color: white;">
+                <label for="Capacity" style="float: left; margin-left: 5px; margin-top: 5px">Capacity:</label>
+                <input type="number" id="Capacity" name="Capacity" min="1" max="10" value="1" required style="margin-top: 6px;">
+                <p style="float: left; margin-top: 11px; font-size: 15px; margin-right: 5px; ">&nbsp;(1-10)</p>
+            </div>
+            </div>
         </div>
+        </center>
+        <center style="clear: left;">
         <?php
         use MongoDB\Operation\Find;
         require 'vendor/autoload.php';
