@@ -81,7 +81,7 @@
                 $green_red = "&#128308;";
             }
             echo "<div class='room_display'>
-                    <br>
+                    <br class='break'>
                     <h3 class='room_title'>Room # ".$each["Room_Id"]."</h3>
                     <img src='rooms_pics/room_".$each["Room_Id"].".jpg' class='room_img'>
                     <div class='room_info'>
@@ -91,9 +91,10 @@
                         <p>".$green_red." Status: ".$each["Status"]."</p>
                         <p>&#128100; Capacity: ".$each["Capacity"]." ".$person_s."</p>
                     </div>
+                    <br><br><br><br><br><br><br><br><br>
+                    <button class='reserve_but' onclick='booking_room(".$each["Room_Id"].")'>Reserve</button>
                   </div>";
         }
-
         ?>
         </center>
     </body>
