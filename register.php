@@ -232,7 +232,7 @@
 
         }
 
-        @media only screen and (max-width: 1360px) {
+        /* @media only screen and (max-width: 1360px) {
 
             .card-header {
                 font-size: 10px;
@@ -256,6 +256,7 @@
                 padding: 4px;
                 margin-bottom: 3px;
             }
+        } */
 
             /* need to make it responsive or keep it like that */
             /* #passwordDiv {
@@ -277,7 +278,6 @@
             #cvvDiv {
                 display: none;
             } */
-        }
     </style>
 </head>
 
