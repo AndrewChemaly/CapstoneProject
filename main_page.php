@@ -1,6 +1,15 @@
 <?php
 // Start the session
 session_start();
+$flag=0;
+// check if its an admin logging in 
+//note that in login  i used session_start(); $_SESSION['username'] = $inputtedUsername;
+//and we have2 admin accounts Andrew and Safo
+if(isset($_SESSION['username'])){
+    if($_SESSION['username']=='Andrew' || $_SESSION['username']=='Safo'){
+        $flag=1;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -677,7 +686,8 @@ session_start();
               <li><a href="gym.html">Gym</a></li>
               <!-- <li><a href="checkin.php">Check-in</a></li> -->
               <!-- <?php
-              if ($flag == 0) {
+              if ($flag == 1) {
+                // add admin link
                 print '<li><a href="admin.html">Admin</a></li>';
               }
               ?> -->

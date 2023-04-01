@@ -76,8 +76,9 @@ $database = $client->Hotel_Reservation;
             if ($inputtedUsername == $storedUsername && password_verify($inputtedPassword, $storedPassword)) {
                 // Valid credentials were intered: Admin will get access and be redirected to the Admin page UI
                 // session
+                session_start();
                 $_SESSION['username'] = $inputtedUsername;
-
+                
                 $flag = 1;
 
                 define("FIVE_DAYS", 60 * 60 * 24 * 5); // define constant
@@ -91,7 +92,7 @@ $database = $client->Hotel_Reservation;
                 );
 
                 print("<script>window.alert('Welcome Admin $inputtedUsername!')</script>");
-                echo "<script> window.location.assign('admin.html'); </script>";
+                echo "<script> window.location.assign('main_page.php'); </script>";
             }
         }
 
