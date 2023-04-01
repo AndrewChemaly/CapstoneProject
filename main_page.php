@@ -685,18 +685,19 @@ if(isset($_SESSION['username'])){
               <li><a href="pool.html">Swimming Pool</a></li>
               <li><a href="gym.html">Gym</a></li>
               <!-- <li><a href="checkin.php">Check-in</a></li> -->
-              <!-- <?php
-              if ($flag == 1) {
-                // add admin link
-                print '<li><a href="admin.html">Admin</a></li>';
-              }
-              ?> -->
+              <!--  -->
               <!-- <li><a href="admin.html">Admin</a></li> -->
             </div>
           </div>
           <!-- <li><a href="CovidRestrictions.html">Covid Restrictions</a></li> -->
           <li><a href="faq.html">FAQ</a>
           <li><a href="login.php">Login/Register</a>
+          <?php
+              if ($flag == 1) {
+                // add admin link
+                print '<li><a href="admin.html">Admin</a></li>';
+              }
+              ?>
         </ul>
 
         <!-- hamburger menu, only essentiel links -->
