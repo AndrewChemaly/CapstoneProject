@@ -7,3 +7,43 @@
     background-color: white;
     border: 3px solid black;
 }
+
+body{
+    min-width: 900px;
+    overflow: auto;
+}
+
+.div_wrapper{
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items:center;
+}
+
+.denial_div{
+    margin-top: 20px;
+    font-size: larger;
+    width: 70%;
+    height: 170px;
+    text-align: center;
+    background-image: linear-gradient( 45deg, #db5d54 40%, #dd3333 100%);
+    border: 10px double #000000;
+    border-radius: 50px;
+}
+
+.stand{
+    background-color: black;
+    border: 10px solid #000000;
+    height: 40%;
+    width: 3%;
+}
+
+.base{
+    background-color: black;
+    border: 10px solid #000000;
+    border-radius: 10px 10px 0px 0px;
+    height: 5%;
+    width: 30%;
+
+}

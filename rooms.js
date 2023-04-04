@@ -23,4 +23,3 @@ window.addEventListener("load", function() {
 function booking_room(room_id){
   location.assign("http://127.0.0.1/CapstoneProject/booking.php?Room_Id="+String(room_id))
 }
-
