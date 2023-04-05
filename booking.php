@@ -4,12 +4,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Wukong Hotel Rooms</title>
         <link rel="stylesheet" href="booking.css">
-        <script src=""></script> 
+        <script src="booking.js"></script> 
     </head>
     <body>
+
         <?php
         use MongoDB\Operation\Find;
         require 'vendor/autoload.php';
+
+        session_start();
+
+        if(!isset($_SESSION["username"])){
+            echo "unauthorized";
+            die();
+        }
 
         $room_id = $_GET['Room_Id'];
         $client = new MongoDB\Client("mongodb://localhost:27017");
@@ -38,13 +46,42 @@
 
         <div class="sticky">
             <header style="text-align: center;">final payment</header>
+            <p>hello</p>
         </div>
         <?php
-            echo "<p>room ID:".$row["Room_Id"]."</p>";
-            echo "<p>Price per Night:".$row["Price_per_Night"]."</p>";
-            echo "<p>Location:".$row["Location"]."</p>";
-            echo "<p>room type:".$row["Type"]."</p>";
-            echo "<p>room Capacity:".$row["Capacity"]."</p>";
+            // echo "<p>room ID:".$row["Room_Id"]."</p>";
+            // echo "<p>Price per Night:".$row["Price_per_Night"]."</p>";
+            // echo "<p>Location:".$row["Location"]."</p>";
+            // echo "<p>room type:".$row["Type"]."</p>";
+            // echo "<p>room Capacity:".$row["Capacity"]."</p>";
         ?>
+        <p>room ID: 1</p>
+        <p>Price per Night: 70</p>
+        <p>Location: beirut</p>
+        <p>room type: family</p>
+        <p>room Capacity: 3</p>
+        <?php  echo "<p> Customer: ".$_SESSION['username']."</p>"?>
+        <label for="check_in">Check in date and time</label>
+        <input id="check_in" type="datetime-local">
+        <p id="check_in_miss" style="display:none">missing</p>
+        <br><br>
+        <label for="check_in">Check out date and time</label>
+        <input id="check_out" type="datetime-local" disabled>
+        <p id="check_out_miss" style="display:none">missing</p>
+        <br><br>
+        <label for="pool">access to pool:</label>
+        <input type="checkbox" id="pool">
+        <br><br>
+        <label for="gym">access to gym:</label>
+        <input type="checkbox" id="gym">
+        <br><br>
+        <label for="breakfast">include breakfast:</label>
+        <input type="checkbox" id="breakfast">
+        <br><br>
+        <label for="launch">include launch:</label>
+        <input type="checkbox" id="launch">
+        <br><br>
+        <label for="dinner">include dinner:</label>
+        <input type="checkbox" id="dinner">
     </body>
 </html>

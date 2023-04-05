@@ -21,5 +21,6 @@ window.addEventListener("load", function() {
 },false)
 
 function booking_room(room_id){
-  location.assign("http://127.0.0.1/CapstoneProject/booking.php?Room_Id="+String(room_id))
+  window.location.href = "booking.php?Room_Id="+String(room_id);
+  //location.assign("http://127.0.0.1/CapstoneProject/booking.php?Room_Id="+String(room_id))
 }
