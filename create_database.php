@@ -88,6 +88,7 @@ $newBookings = [
     [
         'Brn' => 1,
         'Customer_Username' => 'andrewwsafo01',
+        'room_id_booked' => '1',
         'People' => 1,
         'Check_In_Time' => '1:00:00',
         'Check_In_Day' => 'Monday',
@@ -103,6 +104,7 @@ $newBookings = [
     [
         'Brn' => 2,
         'Customer_Username' => 'johndoe',
+        'room_id_booked' => '3',
         'People' => 1,
         'Check_In_Time' => '1:00:00',
         'Check_In_Day' => 'Monday',
@@ -118,36 +120,7 @@ $newBookings = [
     [
         'Brn' => 3,
         'Customer_Username' => 'deliah_johnson',
-        'People' => 3,
-        'Check_In_Time' => '1:00:00',
-        'Check_In_Day' => 'Monday',
-        'Check_Out_Time' => '2:00:00',
-        'Check_Out_Day' => 'Tuesday',
-        'Pool' => False,
-        'Gym' => False,
-        'Breakfast' => true,
-        'Launch' => false,
-        'Dinner' => false,
-        'Price' => 30
-    ],
-    [
-        'Brn' => 4,
-        'Customer_Username' => 'maroun_choucair',
-        'People' => 3,
-        'Check_In_Time' => '1:00:00',
-        'Check_In_Day' => 'Monday',
-        'Check_Out_Time' => '2:00:00',
-        'Check_Out_Day' => 'Tuesday',
-        'Pool' => False,
-        'Gym' => False,
-        'Breakfast' => true,
-        'Launch' => false,
-        'Dinner' => false,
-        'Price' => 30
-    ],
-    [
-        'Brn' => 5,
-        'Customer_Username' => 'shang_chi',
+        'room_id_booked' => '5',
         'People' => 3,
         'Check_In_Time' => '1:00:00',
         'Check_In_Day' => 'Monday',
@@ -192,7 +165,7 @@ $newRooms = [
         'Price_per_Night' => 50,
         'Location' => 'Beirut',
         'Type' => 'Double',
-        'Status' => 'Available',
+        'Status' => 'Reserved',
         'Capacity' => 2
     ],
     [
@@ -200,7 +173,7 @@ $newRooms = [
         'Price_per_Night' => 30,
         'Location' => 'Beirut',
         'Type' => 'Single',
-        'Status' => 'Reserved',
+        'Status' => 'Available',
         'Capacity' => 1
     ],
     [
@@ -208,7 +181,7 @@ $newRooms = [
         'Price_per_Night' => 30,
         'Location' => 'Beirut',
         'Type' => 'Single',
-        'Status' => 'Available',
+        'Status' => 'Reserved',
         'Capacity' => 1
     ]
 ];

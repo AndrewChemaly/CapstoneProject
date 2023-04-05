@@ -68,6 +68,7 @@
         foreach ($result as $each) {
             $green_red = "";
             $person_s = "";
+            $button_disable = "";
             if($each["Capacity"] > 1){
                 $person_s = "persons";
             }
@@ -76,9 +77,11 @@
             }
             if(strcasecmp($each["Status"],"Available") == 0){
                 $green_red = "&#128994;";
+                $button_disable = "";
             }
             else{
                 $green_red = "&#128308;";
+                $button_disable = "disabled";
             }
             echo "<div class='room_display'>
                     <br class='break'>
@@ -92,7 +95,7 @@
                         <p>&#128100; Capacity: ".$each["Capacity"]." ".$person_s."</p>
                     </div>
                     <br><br><br><br><br><br><br><br><br>
-                    <button class='reserve_but' onclick='booking_room(".$each["Room_Id"].")'>Reserve</button>
+                    <button class='reserve_but' ".$button_disable." onclick='booking_room(".$each["Room_Id"].")'>Reserve</button>
                   </div>";
         }
         ?>
