@@ -28,7 +28,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 110vh;
             animation: slide-in 0.5s ease-in-out;
         }
 

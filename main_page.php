@@ -739,7 +739,7 @@ if(isset($_SESSION['username'])){
       ?>
 
 
-     To ROA Airlines!</svg
+     To Wukong Hotel!</svg
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" fill="currentColor"
         class="bi bi-airplane-engines-fill" viewBox="0 0 16 16">
         <path
@@ -1234,17 +1234,18 @@ if(isset($_SESSION['username'])){
 
 
 
-  <!-- Contact Us section -->
   <section class="ContactUs" style="margin-top: -8rem;">
-    <div class="box6">
-      <h1>Contact Us</h1>
-      <form>
-        <input type="text" name="FullName" placeholder="First and Last Name" required>
-        <input type="text" name="Email" placeholder="Enter your email" required>
-        <textarea placeholder="Enter your message"></textarea>
-        <input type="submit" value="Send Message">
-      </form>
-  </section>
+  <div class="box6">
+    <h1>Contact Us</h1>
+    <form action="mailto:wukonghotel@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="FullName" placeholder="First and Last Name" required>
+      <input type="text" name="Email" placeholder="Enter your email" required>
+      <textarea name="Message" placeholder="Enter your message"></textarea>
+      <input type="submit" value="Send Message">
+    </form>
+  </div>
+</section>
+
 
 
 
