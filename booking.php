@@ -165,21 +165,41 @@
         <!-- <p id="check_out_miss" style="display:none">missing</p> -->
 
         <script>
+            // try {
+            //     var asyncRequest = new XMLHttpRequest(); // create request
+            //     window.alert("ds");
+            //     // set up callback function and store it
+            //     asyncRequest.addEventListener("readystatechange",
+            //         function () {
+            //             if (asyncRequest.readyState === 4 && asyncRequest.status === 200) checkTable(asyncRequest.responseText);
+            //             //alert(asyncRequest.responseText);
+            //         }, false);
+
+            //     // send the asynchronous request
+            //     asyncRequest.open("GET", "get_bookingdates.php", true);
+            //     asyncRequest.setRequestHeader("Content-Type", "application/json");
+            //     asyncRequest.send(); // send request      
+            // } // end try
+            // catch (exception) {
+            //     alert("Request Failed");
+            // } // end catch 
+
             try {
-                var asyncRequest = new XMLHttpRequest(); // create request
+                var room_id = <?php echo $room_id; ?>;
+                var asyncRequest = new XMLHttpRequest();
 
-                // set up callback function and store it
-                asyncRequest.addEventListener("readystatechange",
-                    function () {
-                        if (asyncRequest.readyState === 4 && asyncRequest.status === 200) checkTable(asyncRequest.responseText);
-                        //alert(asyncRequest.responseText);
-                    }, false);
+                asyncRequest.addEventListener("readystatechange", function () {
+                    if (asyncRequest.readyState === 4 && asyncRequest.status === 200) {
+                        console.log(asyncRequest.responseText);
+                        checkTable(asyncRequest.responseText);
+                    }
+                });
 
-                // send the asynchronous request
-                asyncRequest.open("GET", "get_bookingdates.php", true);
+                asyncRequest.open("GET", "get_bookingdates.php?Room_Id=" + room_id, true);
                 asyncRequest.setRequestHeader("Content-Type", "application/json");
-                asyncRequest.send(); // send request      
-            } // end try
+                asyncRequest.send();
+
+            }
             catch (exception) {
                 alert("Request Failed");
             } // end catch 
@@ -188,7 +208,7 @@
 
             function checkTable(response) {
                 var data = JSON.parse(response);
-                window.alert(data);
+                // window.alert(data);
                 // checkin.addEventListener("input", myFunction1);
 
 
@@ -200,15 +220,15 @@
                     var check_in = document.getElementById("check_in").value;
                     var check_out = document.getElementById("check_out").value;
 
-                    // console.log(check_in);
-                    // console.log(check_out);
+                    console.log(check_in);
+                    console.log(check_out);
 
                     var check_in_date = new Date(check_in);
                     var check_out_date = new Date(check_out);
 
                     // console.log(check_in_date);
                     // console.log(check_out_date);
-                    console.log(data);
+                    // console.log(data);
 
 
                     // var booking_check_in = new Date(data[0] + 'T' + data[1] + ':00');
@@ -278,18 +298,20 @@
             <?php
             $result_room1 = $booking_collection->find();
             // echo $result_room1; 
+            $flag = 0;
             foreach ($result_room1 as $room) {
                 if ($room['room_id_booked'] == $room_id) {
+                    $flag = 1;
                     // transform to date format
                     $check_in = strtotime($room['Check_In_Date'] . ' ' . $room['Check_In_Time']);
                     $check_out = strtotime($room['Check_Out_Date'] . ' ' . $room['Check_Out_Time']);
                     $booked_dates = date('M d, Y g:i A', $check_in) . ' - ' . date('M d, Y g:i A', $check_out);
                     echo "<span>Booked dates for this room are: $booked_dates</span><br>";
                 }
-                else {
-                    echo "<span>Booked dates for this room are: none</span><br>";
-                }
 
+            }
+            if ($flag == 0) {
+                echo "<span>Booked dates for this room are: none</span><br>";
             }
             ?>
 
