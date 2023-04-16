@@ -234,7 +234,7 @@ if(isset($_POST['show-all-bookings'])){
     $result = $booking_collection->find();
     foreach ($result as $entry) {
         print("<tr>");
-        print("<td>" . $entry['Brn'] . "</td><td>" . $entry['Customer_Username'] . "</td><td>" . $entry['People'] . "</td>" . "<td>" . $entry['Check_In_Time'] . "</td>" . "<td>" . $entry['Check_In_Day'] . "</td>" . "<td>" . $entry['Check_Out_Time'] . "</td>" . "<td>" . $entry['Check_Out_Day'] . "</td>" . "<td>" . $entry['Pool'] . "</td>" . "<td>" . $entry['Gym'] . "</td>" . "<td>" . $entry['Breakfast'] . "</td>" . "<td>" . $entry['Launch'] . "</td>" . "<td>" . $entry['Dinner'] . "</td>" . "<td>" . $entry['Price'] . "</td>");
+        print("<td>" . $entry['Brn'] . "</td><td>" . $entry['Customer_Username'] . "</td><td>" . $entry['People'] . "</td>" . "<td>" . $entry['Check_In_Time'] . "</td>" . "<td>" . $entry['Check_In_Date'] . "</td>" . "<td>" . $entry['Check_Out_Time'] . "</td>" . "<td>" . $entry['Check_Out_Date'] . "</td>" . "<td>" . $entry['Pool'] . "</td>" . "<td>" . $entry['Gym'] . "</td>" . "<td>" . $entry['Breakfast'] . "</td>" . "<td>" . $entry['Launch'] . "</td>" . "<td>" . $entry['Dinner'] . "</td>" . "<td>" . $entry['Price'] . "</td>");
         print("</tr>");
     }
     print("</tbody>");
