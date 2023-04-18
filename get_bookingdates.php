@@ -19,9 +19,9 @@ $us = [];
 foreach ($result as $entry) {
     if ($entry['room_id_booked'] == $q) {
         array_push($us, $entry['Check_In_Date']);
-        array_push($us, $entry['Check_In_Time']);
+        // array_push($us, $entry['Check_In_Time']);
         array_push($us, $entry['Check_Out_Date']);
-        array_push($us, $entry['Check_Out_Time']);
+        // array_push($us, $entry['Check_Out_Time']);
     }
 
 }

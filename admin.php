@@ -227,14 +227,15 @@ if(isset($_POST['show-all-staff']))
 if(isset($_POST['show-all-bookings'])){
     print("<table>");
     print("<thead>");
-    print("<tr><th>BRN</th><th>Customer Username</th><th>People</th><th>Check In Time</th><th>Check In Day</th><th>Check Out Time</th><th>Check Out Day</th><th>Pool</th><th>Gym</th><th>Breakfast</th><th>Launch</th><th>Dinner</th><th>Price</th></tr>");
+    print("<tr><th>BRN</th><th>Customer Username</th><th>Room ID Booked</th><th>People</th><th>Check In Date</th><th>Check Out Date</th><th>Pool</th><th>Gym</th><th>Breakfast</th><th>Launch</th><th>Dinner</th><th>Price</th></tr>");
     print("</thead>");
     print("<tbody>");
 
     $result = $booking_collection->find();
     foreach ($result as $entry) {
         print("<tr>");
-        print("<td>" . $entry['Brn'] . "</td><td>" . $entry['Customer_Username'] . "</td><td>" . $entry['People'] . "</td>" . "<td>" . $entry['Check_In_Time'] . "</td>" . "<td>" . $entry['Check_In_Date'] . "</td>" . "<td>" . $entry['Check_Out_Time'] . "</td>" . "<td>" . $entry['Check_Out_Date'] . "</td>" . "<td>" . $entry['Pool'] . "</td>" . "<td>" . $entry['Gym'] . "</td>" . "<td>" . $entry['Breakfast'] . "</td>" . "<td>" . $entry['Launch'] . "</td>" . "<td>" . $entry['Dinner'] . "</td>" . "<td>" . $entry['Price'] . "</td>");
+        print("<td>" . $entry['Brn'] . "</td><td>" . $entry['Customer_Username'] . "</td><td>" . $entry['room_id_booked'] . "</td>" . "<td>" . $entry['People'] . "</td>" . "<td>" . $entry['Check_In_Date'] . "</td>" . "<td>" . $entry['Check_Out_Date'] . "</td>" . "<td>" . $entry['Pool'] . "</td>" . "<td>" . $entry['Gym'] . "</td>" . "<td>" . $entry['Breakfast'] . "</td>" . "<td>" . $entry['Launch'] . "</td>" . "<td>" . $entry['Dinner'] . "</td>" . "<td>" . $entry['Price'] . "</td>");
+        // print("<td>" . $entry['Brn'] . "</td><td>" . $entry['Customer_Username'] . "</td><td>" . $entry['People'] . "</td>" . "<td>" . $entry['Check_In_Time'] . "</td>" . "<td>" . $entry['Check_In_Date'] . "</td>" . "<td>" . $entry['Check_Out_Time'] . "</td>" . "<td>" . $entry['Check_Out_Date'] . "</td>" . "<td>" . $entry['Pool'] . "</td>" . "<td>" . $entry['Gym'] . "</td>" . "<td>" . $entry['Breakfast'] . "</td>" . "<td>" . $entry['Launch'] . "</td>" . "<td>" . $entry['Dinner'] . "</td>" . "<td>" . $entry['Price'] . "</td>");
         print("</tr>");
     }
     print("</tbody>");
