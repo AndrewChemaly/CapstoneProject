@@ -28,7 +28,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 110vh;
+            height: 115vh;
             animation: slide-in 0.5s ease-in-out;
         }
 
@@ -356,6 +356,9 @@
                         required maxlength="50">
                     <div id="emailDiv"></div>
 
+                    <label for="dob">Date of Birth</label>
+                    <input name="dob" id="dob" placeholder="" type="date" required>
+                    <div id="dob"> </div>
 
                     <label for="CreditCard">Credit Card Number</label>
                     <input name="card" id="card" type="card" placeholder="4xxxxxxxxxxxxxxx (16 digits)"
@@ -652,6 +655,7 @@
         $inputtedFullName = $_POST['fullname'];
         $inputtedUsername = $_POST['username'];
         $inputtedEmail = $_POST['email'];
+        $inputtedDob = $_POST['dob'];
         $inputtedPassword = $_POST['password'];
         $inputtedCard = $_POST['card'];
         $inputtedCVV = $_POST['cvv'];
@@ -689,8 +693,8 @@
             [
                 'Username' => $inputtedUsername,
                 'Full_Name' => $inputtedFullName,
-                // 'Cookie' => '',
                 'Email' => $inputtedEmail,
+                'Date_Of_Birth' => $inputtedDob,
                 'Password' => password_hash($inputtedPassword, PASSWORD_DEFAULT),
                 'Credit_Card_Number' => encrypt($inputtedCard),
                 'Credit_Card_CVV' => encrypt($inputtedCVV),

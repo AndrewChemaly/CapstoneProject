@@ -89,7 +89,7 @@ $newBookings = [
         'Brn' => 1,
         'Customer_Username' => 'andrewwsafo01',
         'room_id_booked' => '1',
-        'People' => 1,
+        // 'People' => 1,
         'Check_In_Date' => '2023-04-18T17:13',
         'Check_Out_Date' => '2023-04-20T17:13',
         'Pool' => False,
@@ -97,65 +97,65 @@ $newBookings = [
         'Breakfast' => true,
         'Launch' => false,
         'Dinner' => false,
-        'Price' => 30
+        // 'Price' => 30
     ],
     [
         'Brn' => 2,
         'Customer_Username' => 'johndoe',
         'room_id_booked' => '3',
-        'People' => 1,
+        // 'People' => 1,
         'Check_In_Date' => '2023-05-18T18:13',
         'Check_Out_Date' => '2023-05-20T13:13',
-        'Pool' => False,
-        'Gym' => False,
+        'Pool' => true,
+        'Gym' => true,
         'Breakfast' => true,
-        'Launch' => false,
+        'Launch' => true,
         'Dinner' => false,
-        'Price' => 30
+        // 'Price' => 30
     ],
     [
         'Brn' => 3,
         'Customer_Username' => 'deliah_johnson',
         'room_id_booked' => '5',
-        'People' => 3,
+        // 'People' => 3,
         'Check_In_Date' => '2023-04-18T14:23',
         'Check_Out_Date' => '2023-04-20T19:43',
-        'Pool' => False,
-        'Gym' => False,
+        'Pool' => true,
+        'Gym' => true,
         'Breakfast' => true,
-        'Launch' => false,
-        'Dinner' => false,
-        'Price' => 30
+        'Launch' => true,
+        'Dinner' => true,
+        // 'Price' => 30
     ],
     [
         'Brn' => 4,
         'Customer_Username' => 'maroun_choucair',
         'room_id_booked' => '4',
-        'People' => 2,
+        // 'People' => 2,
         'Check_In_Date' => '2023-04-20T17:13',
         'Check_Out_Date' => '2023-04-23T17:13',
-        'Pool' => False,
-        'Gym' => False,
+        'Pool' => true,
+        'Gym' => true,
         'Breakfast' => true,
         'Launch' => false,
         'Dinner' => false,
-        'Price' => 30
+        // 'Price' => 30
     ],
     [
         'Brn' => 5,
         'Customer_Username' => 'maroun_choucair',
         'room_id_booked' => '2',
-        'People' => 2,
+        // 'People' => 2,
         // 'Check_In_Time' => '01:00',
         'Check_In_Date' => '2023-05-05T19:13',
         // 'Check_Out_Time' => '04:00',
         'Check_Out_Date' => '2023-05-07T23:50',
-        'Pool' => False,
-        'Gym' => False,
+        'Pool' => true,
+        'Gym' => true,
         'Breakfast' => true,
-        'Launch' => false,
-        'Dinner' => false,
-        'Price' => 30
+        'Launch' => true,
+        'Dinner' => true,
+        // 'Price' => 30
     ]
 
 ];
@@ -257,11 +257,13 @@ $newAdmins = [
     [
         'Username' => 'Andrew',
         'Password' => password_hash('RoverRovieEA', PASSWORD_DEFAULT),
+        'Email' => 'andrew.chemaly@gmail.com'
         // 'Cookie' => ''
     ],
     [
         'Username' => 'Safo',
         'Password' => password_hash('EzraelOTP', PASSWORD_DEFAULT),
+        'Email' => 'moustaphaitani7@gmail.com'
         // 'Cookie' => ''
     ]
 ];
