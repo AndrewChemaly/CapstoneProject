@@ -112,8 +112,7 @@
 
 
 <body>
-    <form name="bookingForm" method="post" onsubmit="window.location.reload()">
-
+    <form name="bookingForm" method="post" action="confirm_ticket.php">
         <script>
             // Get the value of total_price and set it to a variable
             var price = document.getElementById('total_price').value;
@@ -144,85 +143,22 @@
             $result_room = $room_collection->find(['Room_Id' => (integer) $room_id]);
             // $room_id = $_GET['Room_Id'];
         
-
-
-
-
             foreach ($result_room as $row) {
-                echo "<p>room ID:" . $room_id_saved . "</p>";
-                echo "<p>Price per Night:" . $row["Price_per_Night"] . "</p>";
-                echo "<p>Location:" . $row["Location"] . "</p>";
-                echo "<p>room type:" . $row["Type"] . "</p>";
-                echo "<p>room Capacity:" . $row["Capacity"] . "</p>";
+                echo "<p>room ID: " . $room_id_saved . "</p>";
+                echo "<input type='text' name='room_id' value='".$room_id_saved."' hidden>";
+                echo "<p>Price per Night: " . $row["Price_per_Night"] . "</p>";
+                echo "<p>Location: " . $row["Location"] . "</p>";
+                echo "<p>room type: " . $row["Type"] . "</p>";
+                echo "<p>room Capacity: " . $row["Capacity"] . "</p>";
+                echo "<input type='text' name='capacity' value='".$row["Capacity"]."' hidden>";
                 echo "<p> Customer: " . $_SESSION['username'] . "</p>";
+                echo "<input type='text' name='customer' value='".$_SESSION['username']."' hidden>";
             }
 
         }
-
-
-
-
-        if (isset($_POST['submit'])) {
-            // $brn = $_POST['BRN'];
-        
-            //get highest brn
-            $result = $booking_collection->find([], ['sort' => ['Brn' => -1], 'limit' => 1]);
-            $document = $result->toArray()[0]; // convert the cursor to an array and extract the first document
-            $brn = $document['Brn'] + 1; // extract the Brn value from the document and assign it to $brn
-        
-            $room_id = $_GET['Room_Id'];
-            $customer = $_SESSION['username'];
-            $check_in_date = $_POST['check_in'];
-            $check_out_date = $_POST['check_out'];
-            $pool = isset($_POST['pool']) && !empty($_POST['pool']) ? true : false;
-            $breakfast = isset($_POST['breakfast']) && !empty($_POST['breakfast']) ? true : false;
-            $gym = isset($_POST['gym']) && !empty($_POST['gym']) ? true : false;
-            $launch = isset($_POST['launch']) && !empty($_POST['launch']) ? true : false;
-            $dinner = isset($_POST['dinner']) && !empty($_POST['dinner']) ? true : false;
-            // $total_price = $price;
-            // <p id="total_price" name="total_price" >Total Price:</p>
-            // $total_price = "<script>document.getElementById('total_price').value;</script>";
-            // echo $total_price;
-                
-
-
-            $newBooking = [
-                [
-                    'Brn' => $brn,
-                    'Customer_Username' => $customer,
-                    'room_id_booked' => $room_id,
-                    'Check_In_Date' => $check_in_date,
-                    'Check_Out_Date' => $check_out_date,
-                    'Pool' => $pool,
-                    'Gym' => $gym,
-                    'Breakfast' => $breakfast,
-                    'Launch' => $launch,
-                    'Dinner' => $dinner,
-                    // 'price' => $total_price
-                ],
-            ];
-
-            // echo "booking done";
-            $insertBooking = $booking_collection->insertMany($newBooking);
-            // print("<script>window.alert('Successfuly Booked $inputtedUsername in the database. You can now Login')</script>");
-            print("<script>window.alert('Successfully Booked:\\nRoom: $room_id\\nBrn: $brn\\nCheck In Date: $check_in_date\\nCheck Out Date: $check_out_date\\nCustomer: $customer')</script>");
-            //refresh page
-            // echo "<script> window.location.assign('rooms.php'); </script>";
-
-
-
-        }
-
-
-
-
-
-
         ?>
 
-
         <script>
-
             try {
                 var room_id = <?php echo $room_id; ?>;
                 var asyncRequest = new XMLHttpRequest();
@@ -385,7 +321,7 @@
         <input id="check_in" name="check_in" type="datetime-local" required>
         <!-- <p id="check_in_miss" style="display:none">missing</p> -->
         <br><br>
-        <label for="check_in">Check out date and time</label>
+        <label for="check_out">Check out date and time</label>
         <input id="check_out" name="check_out" type="datetime-local" required disabled onchange=checkPrice(this.id)>
         <!-- <p id="check_out_miss" style="display:none">missing</p> -->
 
@@ -406,11 +342,8 @@
         <label for="dinner">include dinner 10$:</label>
         <input type="checkbox" name="dinner" id="dinner" onclick=checkPrice(this.id)>
 
-        <!-- Book button to submit  -->
         <br><br>
         <button type="submit" name="submit" id="submit">Book</button>
-
-
     </form>
 
 

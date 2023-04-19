@@ -14,7 +14,7 @@ $newCustomers = [
         'Full_Name' => 'Safo',
         'Date_Of_Birth' => '01/02/2002',
         // 'Cookie' => '',
-        'Email' => 'safoo@gmail.com',
+        'Email' => 'moustaphaitani7@gmail.com',
         'Password' => password_hash('password123', PASSWORD_DEFAULT),
         'Credit_Card_Number' => encrypt('1234 5678 9876 4321'),
         'Credit_Card_CVV' => encrypt('123'),
@@ -26,7 +26,7 @@ $newCustomers = [
         'Full_Name' => 'John Doe',
         'Date_Of_Birth' => '10/02/1996',
         // 'Cookie' => '',
-        'Email' => 'johndoe@hotmail.com',
+        'Email' => 'andrew.chemaly@gmail.com',
         'Password' => password_hash('password345', PASSWORD_DEFAULT),
         'Credit_Card_Number' => encrypt('1234 5678 9876 4321'),
         'Credit_Card_CVV' => encrypt('133'),
@@ -174,7 +174,7 @@ $newRooms = [
         'Price_per_Night' => 30,
         'Location' => 'Beirut',
         'Type' => 'Single',
-        'Status' => 'Reserved',
+        'Status' => 'Unavailable',
         'Capacity' => 1
     ],
     [
@@ -190,7 +190,7 @@ $newRooms = [
         'Price_per_Night' => 50,
         'Location' => 'Beirut',
         'Type' => 'Double',
-        'Status' => 'Reserved',
+        'Status' => 'Unavailable',
         'Capacity' => 2
     ],
     [
@@ -206,7 +206,7 @@ $newRooms = [
         'Price_per_Night' => 30,
         'Location' => 'Beirut',
         'Type' => 'Single',
-        'Status' => 'Reserved',
+        'Status' => 'Unavailable',
         'Capacity' => 1
     ]
 ];

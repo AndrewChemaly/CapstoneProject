@@ -754,7 +754,14 @@ if(isset($_SESSION['username'])){
     <!-- The Three Boxes hero sectionn -->
     <div class="z">
       <div class="box1">
-        <a href="rooms.php">
+        <?php
+        if (!isset($_SESSION['username'])) {
+            echo "<a href='login.php'>";
+        }
+        else{
+          echo "<a href='rooms.php'>";
+        }
+        ?>
           <h1>Book Room</h1>
           <p>Buy or Reserve a Room</p>
         </a>
