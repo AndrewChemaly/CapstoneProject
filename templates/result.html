@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Hotel Price Prediction</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    form {
+      border: 3px solid #f1f1f1;
+    }
+
+    input[type=text],
+    input[type=number],
+    select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    input[type=submit] {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+
+    div {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+      background-color: #4CAF50;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    a:hover {
+      background-color: #45a049;
+
+    }
+
+  </style>
+</head>
+
+<body>
+  <h1>Hotel Price Prediction</h1>
+  <a style="display: block; text-align: center;" href="{{url_for('heatmap')}}" class="btn btn-primary">Heatmap And Accuracy Scores</a>
+
+
+  <!-- <form action="/predict" method="POST">
+    <label for="year">Year:</label>
+    <input type="number" id="year" name="year" required>
+
+    <label for="month">Month:</label>
+    <input type="number" id="month" name="month" required>
+
+    <label for="day">Day:</label>
+    <input type="number" id="day" name="day" required>
+
+
+    <label for="day_of_week">Day of Week:</label>
+    <select id="day_of_week" name="day_of_week">
+      <option value="1">Monday</option>
+      <option value="2">Tuesday</option>
+      <option value="3">Wednesday</option>
+      <option value="4">Thursday</option>
+      <option value="5">Friday</option>
+      <option value="6">Saturday</option>
+      <option value="7">Sunday</option>
+    </select>
+
+
+    <label for="is_weekend">Is Weekend:</label>
+    <select id="is_weekend" name="is_weekend">
+      <option value="0">No</option>
+      <option value="1">Yes</option>
+    </select>
+
+
+    <label for="total_guests">Total Guests:</label>
+    <input type="number" id="total_guests" name="total_guests" required>
+
+    <label for="lead_time">Lead Time:</label>
+    <input type="number" id="lead_time" name="lead_time" required>
+
+    <input type="submit" value="Submit">
+  </form> -->
+
+  <form action="/predict" method="POST">
+    <label for="company">Company:</label>
+    <input type="number" id="company" name="company">
+
+    <label for="lead_time">Lead Time:</label>
+    <input type="number" id="lead_time" name="lead_time" required>
+
+    <label for="arrival_date_week_number">Week Number:</label>
+    <input type="number" id="arrival_date_week_number" name="arrival_date_week_number" required>
+
+    <label for="arrival_date_day_of_month">Day of Month:</label>
+    <input type="number" id="arrival_date_day_of_month" name="arrival_date_day_of_month" required>
+
+    <label for="stays_in_week_nights">Week Nights:</label>
+    <input type="number" id="stays_in_week_nights" name="stays_in_week_nights" required>
+
+    <label for="agent">Agent:</label>
+    <input type="number" id="agent" name="agent" required>
+
+    <label for="market_segment_Corporate">Market Segment:</label>
+    <select id="market_segment_Corporate" name="market_segment_Corporate">
+      <option value="0">Non-Corporate</option>
+      <option value="1">Corporate</option>
+    </select>
+
+    <label for="distribution_channel_Corporate">Distribution Channel:</label>
+    <select id="distribution_channel_Corporate" name="distribution_channel_Corporate">
+      <option value="0">Non-Corporate</option>
+      <option value="1">Corporate</option>
+    </select>
+
+    <input type="submit" value="Submit">
+</form>
+
+
+  <div id="prediction"></div>
+  <br>
+  {{prediction}}<br>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#predict-form").submit(function (e) {
+        e.preventDefault();
+
+        // Get form values
+        // company
+        // lead_time
+        // arrival_date_week_number
+        // arrival_date_day_of_month
+        // stays_in_week_nights
+        // agent
+        // market_segment_Corporate
+        // distribution_channel_Corporate
+
+        var company = $("#company").val();
+        var lead_time = $("#lead_time").val();
+        var arrival_date_week_number = $("#arrival_date_week_number").val();
+        var arrival_date_day_of_month = $("#arrival_date_day_of_month").val();
+        var stays_in_week_nights = $("#stays_in_week_nights").val();
+        var agent = $("#agent").val();
+        var market_segment_Corporate = $("#market_segment_Corporate").val();
+        var distribution_channel_Corporate = $("#distribution_channel_Corporate").val();
+
+
+
+        // Create JSON payload
+        var data = {
+          company: company,
+          lead_time: lead_time,
+          arrival_date_week_number: arrival_date_week_number,
+          arrival_date_day_of_month: arrival_date_day_of_month,
+          stays_in_week_nights: stays_in_week_nights,
+          agent: agent,
+          market_segment_Corporate: market_segment_Corporate,
+          distribution_channel_Corporate: distribution_channel_Corporate
+        };
+
+        // Send request to Flask app
+        $.ajax({
+          type: "POST",
+          url: "/predict",
+          contentType: "application/json",
+          data: JSON.stringify(data),
+          success: function (response) {
+            $("#prediction").html("Predicted price: " + response.prediction);
+          },
+          error: function (error) {
+            console.log(error);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
