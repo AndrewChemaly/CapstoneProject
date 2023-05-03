@@ -107,12 +107,19 @@
         form {
             display: inline;
         }
+
+   
+
     </style>
 </head>
 
 <body>
     <h1>Admin Dashboard</h1>
     <div class="container">
+        <h2>Price Prediction</h2>
+        <form action="http://127.0.0.1:5000/">
+            <button class="button">Price Prediction</button>
+    </form>
         <h2>Rooms</h2>
         <div class="button-group">
             <form method="post" action="admin.php">
@@ -209,23 +216,96 @@
         <h2>Add a Staff:</h2>
         <form method="post" action="admin.php">
             <label for="staff-name">Name:</label>
-            <input type="text" id="staff-name" name="staff-name">
+            <input type="text" id="staff-name" name="staff-name" required>
             <label for="staff-email">Email:</label>
-            <input type="text" id="staff-email" name="staff-email">
+            <input type="text" id="staff-email" name="staff-email" required>
             <label for="staff-phone">Phone:</label>
-            <input type="text" id="staff-phone" name="staff-phone">
+            <input type="text" id="staff-phone" name="staff-phone" required>
             <label for="staff-dob">Date of Birth:</label>
-            <input type="date" id="staff-dob" name="staff-dob" value="1990-01-01">
+            <input type="date" id="staff-dob" name="staff-dob" value="1990-01-01" required>
             <label for="staff-salary">Salary:</label>
-            <input type="text" id="staff-salary" name="staff-salary">
+            <input type="text" id="staff-salary" name="staff-salary" required>
             <label for="staff-role">Role:</label>
-            <select id="staff-role" name="staff-role">
+            <select id="staff-role" name="staff-role" required>
                 <option value="manager">Manager</option>
                 <option value="receptionist">Receptionist</option>
                 <option value="housekeeper">Roomkeeper</option>
             </select>
             <input type="submit" name="add-staff" value="Add Staff">
         </form>
+
+        <!-- <form action="http://127.0.0.1:5001/predict" method="POST">
+            <label for="year">Year:</label>
+            <input type="number" id="year" name="year" required>
+            <label for="month">Month:</label>
+            <input type="number" id="month" name="month" required>
+            <label for="day">Day:</label>
+            <input type="number" id="day" name="day" required>
+            <label for="duration">Duration:</label>
+            <input type="number" id="duration" name="duration" required>
+            <input type="submit" value="Submit">
+        </form> -->
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+            
+
+        
+        <!-- <form id="prediction-form" method="POST">
+            <label for="year">Year:</label>
+            <input type="number" id="year" name="year" required>
+            <label for="month">Month:</label>
+            <input type="number" id="month" name="month" required>
+            <label for="day">Day:</label>
+            <input type="number" id="day" name="day" required>
+            <label for="duration">Duration:</label>
+            <input type="number" id="duration" name="duration" required>
+            <input type="submit" value="Submit">
+        </form> 
+         <div id="prediction-result"></div> 
+        
+    -->
+        <script>
+
+
+            // $(document).ready(function () {
+                
+            //     $('#prediction-form').submit(function (event) {
+            //         event.preventDefault();
+            //         $.ajax({
+            //             url: 'http://127.0.0.1:5000/predict',
+            //             type: 'POST',
+            //             data: JSON.stringify({
+            //                 year: $('#year').val(),
+            //                 month: $('#month').val(),
+            //                 day: $('#day').val(),
+            //                 duration: $('#duration').val(),
+            //             }),                        
+            //             contentType: 'application/json',
+            //             success: function (response) {
+            //                 // Handle success response here
+            //                 //alert
+            //                 // window.alert(response);
+            //                 $('#prediction-result').text(response.prediction);
+            //             },
+            //             error: function (xhr, status, error) {
+            //                 // Handle error response here
+            //             }
+            //         });
+            //     });
+            // });
+            // // console.log(data);
+        
+
+
+
+
+        </script>
+
+
+
     </div>
 
 

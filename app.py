@@ -48,4 +48,4 @@ def predict():
     return render_template('result.html', prediction='Recommended Hotel Price is {}, R2, {}, MAE {}, MSE{}'.format(prediction[0], r2,mae, mse))
 
 if __name__ == '__main__':
-    app.run(port=5001, debug=True)
+    app.run(port=5000, debug=True)
