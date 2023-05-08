@@ -1297,41 +1297,34 @@ if(isset($_SESSION['username'])){
           <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
           <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
         </svg>
-        <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
+        <small class="d-block mb-3 text-muted">&copy; 2022-2023</small>
       </div>
       <div class="col-6 col-md">
-        <h5>Features</h5>
+        <h5>Services</h5>
         <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="#">Cool stuff</a></li>
-          <li><a class="text-muted" href="#">Random feature</a></li>
-          <li><a class="text-muted" href="#">Team feature</a></li>
-          <li><a class="text-muted" href="#">Stuff for developers</a></li>
-          <li><a class="text-muted" href="#">Another one</a></li>
-          <li><a class="text-muted" href="#">Last time</a></li>
+          <li><a class="text-muted" href="pool.html">Pool</a></li>
+          <li><a class="text-muted" href="gym.html">Gym</a></li>
+          <li><a class="text-muted" href="dining.html">Dinner</a></li>
+          <li><a class="text-muted" href="rooms.php">Explore</a></li>
         </ul>
       </div>
       <div class="col-6 col-md">
         <h5>Resources</h5>
         <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="#">Resource</a></li>
-          <li><a class="text-muted" href="#">Resource name</a></li>
-          <li><a class="text-muted" href="#">Another resource</a></li>
-          <li><a class="text-muted" href="#">Final resource</a></li>
+          <li><a class="text-muted" href="faq.html">FAQ</a></li>
         </ul>
       </div>
       <div class="col-6 col-md">
-        <h5>Resources</h5>
+        <h5>Account</h5>
         <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="#">Business</a></li>
-          <li><a class="text-muted" href="#">Education</a></li>
-          <li><a class="text-muted" href="#">Government</a></li>
-          <li><a class="text-muted" href="#">Gaming</a></li>
+          <li><a class="text-muted" href="register.php">Register</a></li>
+          <li><a class="text-muted" href="login.php">Login</a></li>
         </ul>
       </div>
       <div class="col-6 col-md">
         <h5>About</h5>
         <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="#">Team</a></li>
+          <li><a class="text-muted" href="#">Contact us</a></li>
           <li><a class="text-muted" href="#">Locations</a></li>
           <li><a class="text-muted" href="#">Privacy</a></li>
           <li><a class="text-muted" href="#">Terms</a></li>

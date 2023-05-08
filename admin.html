@@ -108,6 +108,10 @@
             display: inline;
         }
 
+        a:hover {
+      background-color: #666;
+    }
+
    
 
     </style>
@@ -116,11 +120,29 @@
 <body>
     <h1>Admin Dashboard</h1>
     <div class="container">
+
+        <!-- back to home page -->
+        
+        <form action="main_page.php">
+            <button class="button">Back to Home Page</button>
+        </form>
+        
+        
         <h2>Price Prediction</h2>
-        <form action="http://127.0.0.1:5000/">
-            <button class="button">Price Prediction</button>
-    </form>
-        <h2>Rooms</h2>
+        <div class="button-group">
+            <form action="http://127.0.0.1:5000/">
+                <button class="button">Price Prediction</button>
+            </form>
+
+            <form method="post" action="admin.php">
+                <button id="price_prediction" name="price_predicton" class="button">Show All Price Predictions</button>
+            </form>
+            
+        </div>
+
+
+
+         <h2>Rooms</h2 >
         <div class="button-group">
             <form method="post" action="admin.php">
                 <button id="show-all-rooms" name="show-all-rooms" class="button">Show All Rooms</button>

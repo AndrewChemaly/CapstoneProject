@@ -54,6 +54,25 @@ $staff_collection = $client->Hotel_Reservation->Staff;
 
 $booking_collection = $client->Hotel_Reservation->Bookings;
 
+$price_prediction = $client->Hotel_Reservation->Price_Prediction;
+
+if(isset($_POST["price_predicton"]))
+{
+    print("<table>");
+    print("<thead>");
+    print("<tr><th>Company</th><th>Lead Time</th><th>Arrival Date Week Number</th><th>Arrival Date Day of Month</th><th>Stays in Week Nights</th><th>Agent</th><th>Market Segment Corporate</th><th>Distribution Channel Corporate</th><th>Price</th><th>R2 Score</th><th>MAE</th><th>MSE</th></tr>");
+    print("</thead>");
+    print("<tbody>");
+
+    $result = $price_prediction->find();
+    foreach ($result as $entry) {
+        print("<tr>");
+        print("<td>" . $entry['company'] . "</td><td>" . $entry['lead_time'] . "</td><td>" . $entry['arrival_date_week_number'] . "</td>" . "<td>" . $entry['arrival_date_day_of_month'] . "</td>" . "<td>" . $entry['stays_in_week_nights'] . "</td>" . "<td>" . $entry['agent'] . "</td>" . "<td>" . $entry['market_segment_Corporate'] . "</td>" . "<td>" . $entry['distribution_channel_Corporate'] . "</td>" . "<td>" . $entry['price_prediction'] . "</td>" . "<td>" . $entry['r2_score'] . "</td>" . "<td>" . $entry['mae'] . "</td>" . "<td>" . $entry['mse'] . "</td>");
+        print("</tr>");
+    }
+    print("</tbody>");
+    print("</table>");
+}
 
 if (isset($_POST["show-all-rooms"]))
 // Room ID , Price Per Night, Locationm Type, Status, Capacity

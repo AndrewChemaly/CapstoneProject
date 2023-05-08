@@ -271,6 +271,38 @@ $newAdmins = [
 
 $insertManyResult = $admin_collection->insertMany($newAdmins);
 
+//add price prediction table
+$price_prediction_collection = $client->Hotel_Reservation->Price_Prediction;
+
+    //price prediciton attributes:
+    // company: company,
+    // lead_time: lead_time,
+    // arrival_date_week_number: arrival_date_week_number,
+    // arrival_date_day_of_month: arrival_date_day_of_month,
+    // stays_in_week_nights: stays_in_week_nights,
+    // agent: agent,
+    // market_segment_Corporate: market_segment_Corporate,
+    // distribution_channel_Corporate: distribution_channel_Corporate
+
+$newPricePrediction = [
+    [
+        'company' => 0,
+        'lead_time' => 342,
+        'arrival_date_week_number' => 27,
+        'arrival_date_day_of_month' => 1,
+        'stays_in_week_nights' => 0,
+        'agent' => 240,
+        'market_segment_Corporate' => 0,
+        'distribution_channel_Corporate' => 0,
+        'price_prediction' => 30,
+        'r2_score' => 0.8331993226952084,
+        'mae' => 10.062339282672594,
+        'mse' => 277.0795602715249,
+    ],
+];
+
+$insertManyResult = $price_prediction_collection->insertMany($newPricePrediction);
+
 function encrypt($data)
 {
 

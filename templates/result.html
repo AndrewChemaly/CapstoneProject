@@ -4,71 +4,151 @@
 <head>
   <title>Hotel Price Prediction</title>
   <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-    }
+    /* Basic styles */
 
-    form {
-      border: 3px solid #f1f1f1;
-    }
-
-    input[type=text],
-    input[type=number],
-    select {
-      width: 100%;
-      padding: 12px 20px;
-      margin: 8px 0;
-      display: inline-block;
-      border: 1px solid #ccc;
+    html {
       box-sizing: border-box;
     }
 
-    input[type=submit] {
-      width: 100%;
-      background-color: #4CAF50;
-      color: white;
-      padding: 14px 20px;
-      margin: 8px 0;
-      border: none;
-      cursor: pointer;
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
     }
 
-    input[type=submit]:hover {
-      background-color: #45a049;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
     }
 
-    div {
-      border-radius: 5px;
-      background-color: #f2f2f2;
-      padding: 20px;
+    .container {
+      /* max-width: 1200px; */
+      margin: 0 auto;
+      padding: 3000px;
+      background-color: #fff;
     }
 
     h1 {
+      margin-top: 0;
+      padding: 20px;
+      background-color: #333;
+      color: #fff;
       text-align: center;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+    }
+
+    /* Buttons */
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .button:hover {
+      background-color: #666;
+    }
+
+    .button-group {
+      margin-bottom: 20px;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #333;
+      color: #fff;
+    }
+
+    /* Forms */
+    form {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="submit"],
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+    }
+
+    input[type="submit"] {
+      background-color: #333;
+      color: #fff;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #666;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+    }
+
+    form {
+      display: inline;
     }
 
     a {
       text-decoration: none;
-      color: white;
-      background-color: #4CAF50;
+      background-color: #333;
+      color: #fff;
       padding: 10px;
       border-radius: 5px;
     }
 
     a:hover {
-      background-color: #45a049;
-
+      background-color: #666;
     }
-
   </style>
 </head>
 
 <body>
   <h1>Hotel Price Prediction</h1>
-  <a style="display: block; text-align: center;" href="{{url_for('heatmap')}}" class="btn btn-primary">Heatmap And Accuracy Scores</a>
+
+  <div class="container">
+
+    <a style="display: block; text-align: center;" href="{{url_for('heatmap')}}" class="btn btn-primary">Heatmap And
+      Accuracy Scores</a>
 
 
-  <!-- <form action="/predict" method="POST">
+    <!-- <form action="/predict" method="POST">
     <label for="year">Year:</label>
     <input type="number" id="year" name="year" required>
 
@@ -107,48 +187,54 @@
     <input type="submit" value="Submit">
   </form> -->
 
-  <br>
-  <a style="display: block; text-align: center;" href="http://localhost:8080/CapstoneProject/admin.html">Back to Admin</a>
+    <br>
+    <a style="display: block; text-align: center;" href="http://localhost:8080/CapstoneProject/admin.html">Back to Admin
+      Page</a>
 
 
-  <form action="/predict" method="POST">
-    <label for="company">Company:</label>
-    <input type="number" id="company" name="company">
+    <form action="/predict" method="POST">
+      <label for="company">Company:</label>
+      <input type="number" id="company" name="company">
 
-    <label for="lead_time">Lead Time:</label>
-    <input type="number" id="lead_time" name="lead_time" required>
+      <label for="lead_time">Lead Time:</label>
+      <input type="number" id="lead_time" name="lead_time" required>
 
-    <label for="arrival_date_week_number">Week Number:</label>
-    <input type="number" id="arrival_date_week_number" name="arrival_date_week_number" required>
+      <label for="arrival_date_week_number">Week Number:</label>
+      <input type="number" id="arrival_date_week_number" name="arrival_date_week_number" required>
 
-    <label for="arrival_date_day_of_month">Day of Month:</label>
-    <input type="number" id="arrival_date_day_of_month" name="arrival_date_day_of_month" required>
+      <label for="arrival_date_day_of_month">Day of Month:</label>
+      <input type="number" id="arrival_date_day_of_month" name="arrival_date_day_of_month" required>
 
-    <label for="stays_in_week_nights">Week Nights:</label>
-    <input type="number" id="stays_in_week_nights" name="stays_in_week_nights" required>
+      <label for="stays_in_week_nights">Week Nights:</label>
+      <input type="number" id="stays_in_week_nights" name="stays_in_week_nights" required>
 
-    <label for="agent">Agent:</label>
-    <input type="number" id="agent" name="agent" required>
+      <label for="agent">Agent:</label>
+      <input type="number" id="agent" name="agent" required>
 
-    <label for="market_segment_Corporate">Market Segment:</label>
-    <select id="market_segment_Corporate" name="market_segment_Corporate">
-      <option value="0">Non-Corporate</option>
-      <option value="1">Corporate</option>
-    </select>
+      <label for="market_segment_Corporate">Market Segment:</label>
+      <select id="market_segment_Corporate" name="market_segment_Corporate">
+        <option value="0">Non-Corporate</option>
+        <option value="1">Corporate</option>
+      </select>
 
-    <label for="distribution_channel_Corporate">Distribution Channel:</label>
-    <select id="distribution_channel_Corporate" name="distribution_channel_Corporate">
-      <option value="0">Non-Corporate</option>
-      <option value="1">Corporate</option>
-    </select>
+      <label for="distribution_channel_Corporate">Distribution Channel:</label>
+      <select id="distribution_channel_Corporate" name="distribution_channel_Corporate">
+        <option value="0">Non-Corporate</option>
+        <option value="1">Corporate</option>
+      </select>
 
-    <input type="submit" value="Submit">
-</form>
+      <input type="submit" value="Submit">
+    </form>
 
 
-  <div id="prediction"></div>
-  <br>
-  {{prediction}}<br>
+    <div id="prediction"></div>
+    <br style="text-align: center;  font-size: 20px;
+    font-weight: bold;justify-content: center;">
+    {{prediction}}<br>
+
+
+
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
