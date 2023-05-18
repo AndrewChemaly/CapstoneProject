@@ -344,7 +344,9 @@
 
         <br><br>
         <button type="submit" name="submit" id="submit">Book</button>
+        
     </form>
+    <a href="main_page.php"><button>Back Home</button></a>
 
 
 

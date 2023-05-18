@@ -10,21 +10,21 @@
     <body>
         <center>
             <?php
-            $query = ['Price_per_Night' => ['$lt' => (int) $_POST["price_inp"]]];
+            
+            $price = 0;
+            if(!isset($_POST["price_inp"])){
+                $price = 300;
+            }
+            else{
+                $price = (int) $_POST["price_inp"];
+            }
+            $query = ['Price_per_Night' => ['$lt' => $price]];
             if(isset($_POST["location_inp"])){
                 $query['Location'] = $_POST["location_inp"];
             }
             
             if(isset($_POST["type_inp"])){
                 $query['Type'] = $_POST["type_inp"];
-            }
-            
-            if(isset($_POST["status_inp"])){
-                $query['Status'] = $_POST["status_inp"];
-            }
-            
-            if($_POST["capacity_inp"] != ""){
-                $query['Capacity'] = ['$lte' => (int) $_POST["capacity_inp"]];
             }
             use MongoDB\Operation\Find;
             require 'vendor/autoload.php';
