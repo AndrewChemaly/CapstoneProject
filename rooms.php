@@ -9,28 +9,55 @@
     </head>
     <body>
         <center>
+            <?php
+            $query = ['Price_per_Night' => ['$lt' => (int) $_POST["price_inp"]]];
+            if(isset($_POST["location_inp"])){
+                $query['Location'] = $_POST["location_inp"];
+            }
+            
+            if(isset($_POST["type_inp"])){
+                $query['Type'] = $_POST["type_inp"];
+            }
+            
+            if(isset($_POST["status_inp"])){
+                $query['Status'] = $_POST["status_inp"];
+            }
+            
+            if($_POST["capacity_inp"] != ""){
+                $query['Capacity'] = ['$lte' => (int) $_POST["capacity_inp"]];
+            }
+            use MongoDB\Operation\Find;
+            require 'vendor/autoload.php';
+
+            $client = new MongoDB\Client("mongodb://localhost:27017");
+            $database = $client->Hotel_Reservation;
+
+            $room_collection = $client->Hotel_Reservation->Rooms;
+            $result = $room_collection->find($query);
+            ?>
         <div style="margin-bottom: 15px;">
             <h1 style="margin-bottom: 10px;">&#128269; Search Room</h1>
-            <div class="filters">
+            <!--<div class="filters">-->
+                <form action="#" method="post" class="filters" id="Form">
             <div style="margin-top: 5px; margin-left: 10px; border: 1px solid white; border-radius: 10px; height: 33px;  background-color: white;">
                 <label for="Price_Range" style="float: left; margin-left: 5px; margin-top: 4px;">Price:</label>
-                <input type="range" min="1" max="100" value="50" class="slider" id="Price_Range" required>
+                <input type="range" min="0" max="300" value="300" class="slider" id="Price_Range" name="price_inp" required>
                 <p id="output_price">0<span style="font-size: 14px; float: right;">💲</span></p>
             </div>
             <div style="margin-top: 5px; border: 1px solid white; border-radius: 10px; height: 33px;  background-color: white;">
                 <label for="locations" style="margin-left: 5px;">Location:</label>
-                <select id="locations" required style="margin-right: 5px; margin-top: 6px;">
+                <select id="locations" name="location_inp" required style="margin-right: 5px; margin-top: 6px;">
                     <option disabled selected>Choose</option>
                     <option value="Beirut">Beirut</option>
                     <option value="Tripoli">Tripoli</option>
                     <option value="Sidon">Sidon</option>
-                    <option value="Jbeil">Jbeil</option>
+                    <option value="Jbeil">Jbeil</option>    
                     <option value="Batroun">Batroun</option>
                 </select>
             </div>
             <div style="margin-top: 5px; border: 1px solid white; border-radius: 10px; height: 33px;  background-color: white;">
                 <label for="type" style="margin-left: 5px;">Type:</label>
-                <select id="Type" required style="margin-right: 5px; margin-top: 6px;">
+                <select id="Type" required name="type_inp" style="margin-right: 5px; margin-top: 6px;">
                     <option disabled selected>Choose</option>
                     <option value="Single">Single</option>
                     <option value="Double">Double</option>
@@ -41,30 +68,23 @@
             </div>
             <div style="margin-top: 5px; border: 1px solid white; border-radius: 10px; height: 33px;  background-color: white;">
                 <label for="status" style="margin-left: 5px;">Status:</label>
-                <select id="status" required style="margin-right: 5px; margin-top: 6px;">
+                <select id="status" required name="status_inp" style="margin-right: 5px; margin-top: 6px;">
                     <option disabled selected>Choose</option>
                     <option value="Available">Available</option>
-                    <option value="Reserved">Reserved</option>
+                    <option value="Unavailable">Unavailable</option>
                 </select>
             </div>
             <div style="margin-top: 5px; margin-right: 10px; border: 1px solid white; border-radius: 10px; height: 33px;  background-color: white;">
                 <label for="Capacity" style="float: left; margin-left: 5px; margin-top: 5px">Capacity:</label>
-                <input type="number" id="Capacity" name="Capacity" min="1" max="10" value="1" required style="margin-top: 6px;">
+                <input type="number" id="Capacity" name="capacity_inp" min="1" max="10" value="" required style="margin-top: 6px;">
                 <p style="float: left; margin-top: 11px; font-size: 15px; margin-right: 5px; ">&nbsp;(1-10)</p>
             </div>
-            </div>
+                </form>
+            <!--</div>-->
         </div>
         </center>
         <center style="clear: left;">
         <?php
-        use MongoDB\Operation\Find;
-        require 'vendor/autoload.php';
-
-        $client = new MongoDB\Client("mongodb://localhost:27017");
-        $database = $client->Hotel_Reservation;
-        $room_collection = $client->Hotel_Reservation->Rooms;
-        $result = $room_collection->find();
-
         foreach ($result as $each) {
             $green_red = "";
             $person_s = "";
