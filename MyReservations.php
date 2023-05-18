@@ -143,12 +143,25 @@ print("</table>");
 
     <?php
     if (isset($_POST['submit'])) {
+        $flag = 0;
         $Book_ID = (int) $_POST['Book_ID'];
-        $result = $booking_collection->deleteOne(['Brn' => $Book_ID]);
-        if ($result->getDeletedCount() == 1) {
-            echo "Booking Cancelled";
-        } else {
+        //customer can only delete if he actually booked the room
+        $result = $booking_collection->countDocuments(['Brn' => $Book_ID, 'Customer_Username' => $customer_username]);
+        if ($result == 0) {
             echo "Booking not found";
+            $flag = 1;
+        }
+
+        
+        if($flag == 0)
+        {
+
+            $result = $booking_collection->deleteOne(['Brn' => $Book_ID]);
+            if ($result->getDeletedCount() == 1) {
+                echo "Booking Cancelled";
+            } else {
+                echo "Booking not found";
+            }
         }
     }
 
