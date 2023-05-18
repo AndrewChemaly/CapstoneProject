@@ -114,6 +114,7 @@ if(isset($_SESSION['username'])){
       align-items: center;
       margin: auto;
       padding-top: 2rem;
+      margin-top: 100px;
 
     }
 
@@ -721,11 +722,8 @@ if(isset($_SESSION['username'])){
     <!-- temp.html -->
 
     <!-- hero -->
-    <h1 style="margin-top: 2rem; text-align: center; color: white;"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-        height="20" fill="currentColor" class="bi bi-airplane-engines-fill" viewBox="0 0 16 16">
-        <path
-          d="M8 0c-.787 0-1.292.592-1.572 1.151A4.347 4.347 0 0 0 6 3v3.691l-2 1V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.191l-1.17.585A1.5 1.5 0 0 0 0 10.618V12a.5.5 0 0 0 .582.493l1.631-.272.313.937a.5.5 0 0 0 .948 0l.405-1.214 2.21-.369.375 2.253-1.318 1.318A.5.5 0 0 0 5.5 16h5a.5.5 0 0 0 .354-.854l-1.318-1.318.375-2.253 2.21.369.405 1.214a.5.5 0 0 0 .948 0l.313-.937 1.63.272A.5.5 0 0 0 16 12v-1.382a1.5 1.5 0 0 0-.83-1.342L14 8.691V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v.191l-2-1V3c0-.568-.14-1.271-.428-1.849C9.292.591 8.787 0 8 0Z" />
-      </svg>Welcome, 
+    <h1 style="margin-top: 2rem; text-align: center; color: white;">
+    Welcome, 
       <!-- use session to print username, note that i already started the session in login.php -->
       <?php 
       // print if guest
@@ -737,14 +735,8 @@ if(isset($_SESSION['username'])){
         print $_SESSION['username'];
       }
       ?>
+     To Wukong Hotel!
 
-
-     To Wukong Hotel!</svg
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" fill="currentColor"
-        class="bi bi-airplane-engines-fill" viewBox="0 0 16 16">
-        <path
-          d="M8 0c-.787 0-1.292.592-1.572 1.151A4.347 4.347 0 0 0 6 3v3.691l-2 1V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.191l-1.17.585A1.5 1.5 0 0 0 0 10.618V12a.5.5 0 0 0 .582.493l1.631-.272.313.937a.5.5 0 0 0 .948 0l.405-1.214 2.21-.369.375 2.253-1.318 1.318A.5.5 0 0 0 5.5 16h5a.5.5 0 0 0 .354-.854l-1.318-1.318.375-2.253 2.21.369.405 1.214a.5.5 0 0 0 .948 0l.313-.937 1.63.272A.5.5 0 0 0 16 12v-1.382a1.5 1.5 0 0 0-.83-1.342L14 8.691V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v.191l-2-1V3c0-.568-.14-1.271-.428-1.849C9.292.591 8.787 0 8 0Z" />
-      </svg>
     </h1>
 
 
@@ -767,16 +759,15 @@ if(isset($_SESSION['username'])){
         </a>
       </div>
       <div class="box2">
-        <a href="checkin.php">
+        <a href="dining.html">
           <h1>Facilities</h1>
           <p>Check Out The Different Facilities</p>
         </a>
       </div>
       <div class="box3">
-        <a href="flight_schedule_search.php">
-          <h1>Services</h1>
-
-          <p>Check Out The Offered Services</p>
+        <a href="MyReservations.php">
+          <h1>My Bookings</h1>
+          <p>Check out My Bookings</p>
         </a>
       </div>
     </div>
@@ -799,7 +790,7 @@ if(isset($_SESSION['username'])){
           Relax in our indoor pool and hot tub, unwind in our beautiful guest rooms with fireplaces and mountain views,
           and treat yourself to a spa treatment.<br><br>
           Perfect for a winter vacation that includes skiing and snowshoeing.
-          <a href="CovidRestrictions.html"><button id="button1">Book Now</button></a>
+          <a href="rooms.php"><button id="button1">Book Now</button></a>
         </p>
       </div>
     </div>
@@ -813,7 +804,7 @@ if(isset($_SESSION['username'])){
         <p>Plan your summer vacation at our seaside hotel to escape the heat.<br><br>
           Swim in the pristine ocean, enjoy delectable seafood dishes, and unwind on the sandy beach.<br><br>
           Make lifetime experiences by making a reservation right away.
-          <a href="CovidRestrictions.html"><button id="button1">Book Now</button></a>
+          <a href="rooms.php"><button id="button1">Book Now</button></a>
         </p>
       </div>
       <img src="main_page_pics/summerpic.jpg" width="100%" alt="Summer Getaway"
@@ -1297,7 +1288,7 @@ if(isset($_SESSION['username'])){
           <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
           <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
         </svg>
-        <small class="d-block mb-3 text-muted">&copy; 2022-2023</small>
+        <small class="d-block mb-3 text-muted">&copy; 2023-2024</small>
       </div>
       <div class="col-6 col-md">
         <h5>Services</h5>

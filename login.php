@@ -47,15 +47,15 @@ $database = $client->Hotel_Reservation;
                 $flag = 1;
 
 
-                define("FIVE_DAYS", 60 * 60 * 24 * 5); // define constant
-                $h = $inputtedUsername . rand(1,100);
-                setcookie( "username", $h , time() + FIVE_DAYS );
-                //.rand(1,10000)
+                // define("FIVE_DAYS", 60 * 60 * 24 * 5); // define constant
+                // $h = $inputtedUsername . rand(1,100);
+                // setcookie( "username", $h , time() + FIVE_DAYS );
+                // //.rand(1,10000)
 
-                $customer_collection->updateOne(
-                    ['Username' => $inputtedUsername],
-                    ['$set' => ['Cookie' => $h]]
-                );
+                // $customer_collection->updateOne(
+                //     ['Username' => $inputtedUsername],
+                //     ['$set' => ['Cookie' => $h]]
+                // );
                 // print("<script>window.alert('Welcome $inputtedUsername!')</script>");
                 echo "<script> window.location.assign('main_page.php'); </script>";
             }
@@ -81,15 +81,15 @@ $database = $client->Hotel_Reservation;
                 
                 $flag = 1;
 
-                define("FIVE_DAYS", 60 * 60 * 24 * 5); // define constant
-                $h = $inputtedUsername . rand(1,100);
-                setcookie( "username", $h , time() + FIVE_DAYS );
-                //.rand(1,10000)
+                // define("FIVE_DAYS", 60 * 60 * 24 * 5); // define constant
+                // $h = $inputtedUsername . rand(1,100);
+                // setcookie( "username", $h , time() + FIVE_DAYS );
+                // //.rand(1,10000)
 
-                $admin_collection->updateOne(
-                    ['Username' => $inputtedUsername],
-                    ['$set' => ['Cookie' => $h]]
-                );
+                // $admin_collection->updateOne(
+                //     ['Username' => $inputtedUsername],
+                //     ['$set' => ['Cookie' => $h]]
+                // );
 
                 print("<script>window.alert('Welcome Admin $inputtedUsername!')</script>");
                 echo "<script> window.location.assign('main_page.php'); </script>";

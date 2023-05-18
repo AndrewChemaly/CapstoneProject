@@ -720,7 +720,7 @@
 
 
 
-        print("<script>window.alert('Successfuly registered $inputtedUsername in the database. You can now Login')</script>");
+        print("<script>window.alert('Successfuly registered $inputtedUsername. You can now Login!')</script>");
         echo "<script> window.location.assign('login.php'); </script>";
     }
 
